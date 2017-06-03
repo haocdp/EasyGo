@@ -22,7 +22,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@android:color/holo_orange_light"
+    android:background="@color/background"
     tools:context="com.unicorn.easygo.MainActivity">
 
     <LinearLayout
@@ -38,7 +38,7 @@
             android:layout_width="111dp"
             android:layout_height="70dp"
             android:layout_gravity="center_vertical|center_horizontal"
-            android:background="@android:color/holo_orange_light"
+            android:background="@color/background"
             android:ems="10"
             android:gravity="fill_vertical|center_horizontal"
             android:text="易购"
