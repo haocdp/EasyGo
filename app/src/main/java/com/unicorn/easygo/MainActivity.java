@@ -11,6 +11,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.relex.circleindicator.CircleIndicator;
+
 public class MainActivity extends AppCompatActivity {
 
     private View preOrderView, scanRecordView;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         viewPager = (ViewPager) findViewById(R.id.viewpager);
+        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         LayoutInflater inflater = getLayoutInflater();
         preOrderView = inflater.inflate(R.layout.pre_order_list_layout, null);
         scanRecordView = inflater.inflate(R.layout.scan_record_layout, null);
@@ -56,5 +59,6 @@ public class MainActivity extends AppCompatActivity {
         };
 
         viewPager.setAdapter(pagerAdapter);
+        indicator.setViewPager(viewPager);
     }
 }
