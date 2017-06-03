@@ -10,7 +10,7 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="这里你来做吧，查一下viewPager的资料"
+        android:text="这里你来做吧，"
         android:textSize="30sp"
         android:layout_weight="0.21" />
 </LinearLayout>
