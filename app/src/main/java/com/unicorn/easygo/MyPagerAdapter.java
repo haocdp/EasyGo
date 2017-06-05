@@ -5,23 +5,16 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import java.util.List;
 
-public class MyPagerAdapter extends FragmentPagerAdapter {
-
+public class MyPagerAdapter extends FragmentPagerAdapter{
     private List<Fragment> mFragments;
-
-    public MyPagerAdapter(FragmentManager fm,List<Fragment> fragments) {
+    public MyPagerAdapter(FragmentManager fm,List<Fragment> fragments){
         super(fm);
         mFragments=fragments;
     }
-
-    @Override
-    public Fragment getItem(int arg0) {
+    public Fragment getItem(int arg0){
         return mFragments.get(arg0);
     }
-
-    @Override
     public int getCount() {
         return mFragments.size();
     }
-
 }
