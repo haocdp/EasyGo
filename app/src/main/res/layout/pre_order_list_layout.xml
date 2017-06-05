@@ -6,11 +6,9 @@
     android:orientation="vertical"
     android:weightSum="1">
 
-    <TextView
-        android:id="@+id/textView2"
+    <ScrollView
+        android:id="@+id/scrollView_orders"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="这里你来做吧，"
-        android:textSize="30sp"
-        android:layout_weight="0.21" />
+        android:layout_height="match_parent">
+    </ScrollView>
 </LinearLayout>
