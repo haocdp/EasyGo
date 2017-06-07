@@ -1,5 +1,6 @@
 package com.unicorn.easygo;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.support.v4.app.Fragment;
@@ -14,16 +15,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.unicorn.easygo.activity.MarketRecommendActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import me.relex.circleindicator.CircleIndicator;
 
-public class MainActivity extends FragmentActivity implements View.OnClickListener,ViewPager.OnPageChangeListener
-      {
+public class MainActivity extends FragmentActivity implements View.OnClickListener,ViewPager.OnPageChangeListener {
 
     private View preOrderView, scanRecordView;
     private ViewPager viewPager;
@@ -31,6 +34,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ImageView img_cursor;
     private TextView tv_one;
     private TextView tv_two;
+
+    //超市推荐按钮
+    private ImageButton marketRecommendView;
 
     private ArrayList<View> listViews;
     private int offset = 0;//移动条图片的偏移量
@@ -51,6 +57,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         tv_two = (TextView) findViewById(R.id.tv_two);
         img_cursor = (ImageView) findViewById(R.id.img_cursor);
         CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
+        marketRecommendView  = (ImageButton)findViewById(R.id.marketRecommend);
 
         //下划线动画的相关设置：
         bmpWidth = BitmapFactory.decodeResource(getResources(), R.mipmap.line).getWidth();// 获取图片宽度
@@ -78,6 +85,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         indicator.setViewPager(viewPager);
         tv_one.setOnClickListener(this);
         tv_two.setOnClickListener(this);
+        marketRecommendView.setOnClickListener(this);
+
 
        viewPager.addOnPageChangeListener(this);
     }
@@ -89,6 +98,10 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 break;
             case R.id.tv_two:
                 viewPager.setCurrentItem(1);
+                break;
+            case R.id.marketRecommend:
+                Intent intent = new Intent(this, MarketRecommendActivity.class);
+                this.startActivity(intent);
                 break;
         }
     }

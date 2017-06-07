@@ -63,7 +63,7 @@
             android:textSize="30sp" />
 
         <ImageButton
-            android:id="@+id/imageButton7"
+            android:id="@+id/marketRecommend"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginRight="10dp"
