@@ -20,6 +20,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.unicorn.easygo.activity.MarketRecommendActivity;
+import com.unicorn.easygo.utils.FontUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +35,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
     private ImageView img_cursor;
     private TextView tv_one;
     private TextView tv_two;
+    private TextView appName;
 
     //超市推荐按钮
     private ImageButton marketRecommendView;
@@ -49,12 +51,14 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initViews();
+        setFonts();
     }
 
     private void initViews() {
         viewPager = (ViewPager) findViewById(R.id.viewpager);
         tv_one = (TextView) findViewById(R.id.tv_one);
         tv_two = (TextView) findViewById(R.id.tv_two);
+        appName = (TextView) findViewById(R.id.textView_appName);
         img_cursor = (ImageView) findViewById(R.id.img_cursor);
         CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         marketRecommendView  = (ImageButton)findViewById(R.id.marketRecommend);
@@ -89,6 +93,15 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
 
        viewPager.addOnPageChangeListener(this);
+    }
+
+    /**
+     * 设置页面字体
+     */
+    private void setFonts(){
+        FontUtil.setFont(appName, this, 0);
+        FontUtil.setFont(tv_one,this, 0);
+        FontUtil.setFont(tv_two, this, 0);
     }
 
     public void onClick(View v) {
