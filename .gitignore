@@ -36,5 +36,3 @@ proguard/
 # Intellij project files
 *.ipr
 *.iws
-
-app/libs/
