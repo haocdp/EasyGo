@@ -35,7 +35,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MarketRecommendActivity" />
+        <activity android:name=".activity.MarketRecommendActivity"></activity>
+        <activity android:name=".activity.OrderActivity"></activity>
         <activity android:name=".activity.BaseActivity"></activity>
     </application>
 
