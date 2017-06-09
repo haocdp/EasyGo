@@ -38,6 +38,11 @@
         <activity android:name=".activity.MarketRecommendActivity"></activity>
         <activity android:name=".activity.OrderActivity"></activity>
         <activity android:name=".activity.BaseActivity"></activity>
+        <activity android:name=".activity.CouponActivity"></activity>
+        <activity android:name=".activity.HistoryActivity"></activity>
+        <activity android:name=".activity.MessageActivity"></activity>
+        <activity android:name=".activity.PersonalInfoActivity"></activity>
+        <activity android:name=".activity.WalletActivity"></activity>
     </application>
 
 </manifest>

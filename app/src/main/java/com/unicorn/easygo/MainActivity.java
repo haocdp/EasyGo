@@ -20,9 +20,13 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.unicorn.easygo.activity.CouponActivity;
+import com.unicorn.easygo.activity.HistoryActivity;
 import com.unicorn.easygo.activity.MarketRecommendActivity;
+import com.unicorn.easygo.activity.MessageActivity;
 import com.unicorn.easygo.activity.OrderActivity;
 import com.unicorn.easygo.activity.PersonalInfoActivity;
+import com.unicorn.easygo.activity.WalletActivity;
 import com.unicorn.easygo.utils.FontUtil;
 
 import java.util.ArrayList;
@@ -86,19 +90,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                         startActivity(intent_order);
                         break;
                     case R.id.nav_wallet:
-                        Intent intent_wallet = new Intent(MainActivity.this,OrderActivity.class);
+                        Intent intent_wallet = new Intent(MainActivity.this,WalletActivity.class);
                         startActivity(intent_wallet);
                         break;
                     case R.id.nav_history:
-                        Intent intent_history = new Intent(MainActivity.this,OrderActivity.class);
+                        Intent intent_history = new Intent(MainActivity.this, HistoryActivity.class);
                         startActivity(intent_history);
                         break;
                     case R.id.nav_coupon:
-                        Intent intent_coupon = new Intent(MainActivity.this,OrderActivity.class);
+                        Intent intent_coupon = new Intent(MainActivity.this,CouponActivity.class);
                         startActivity(intent_coupon);
                         break;
                     case R.id.nav_message:
-                        Intent intent_message = new Intent(MainActivity.this,OrderActivity.class);
+                        Intent intent_message = new Intent(MainActivity.this,MessageActivity.class);
                         startActivity(intent_message);
                         break;
                 }
