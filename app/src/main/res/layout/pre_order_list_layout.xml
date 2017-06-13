@@ -6,9 +6,18 @@
     android:orientation="vertical"
     android:weightSum="1">
 
-    <ScrollView
+    <!--<ScrollView
         android:id="@+id/scrollView_orders"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    </ScrollView>
+        </ScrollView>-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_orders"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+
+    </android.support.v7.widget.RecyclerView>
+
 </LinearLayout>

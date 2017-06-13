@@ -10,7 +10,7 @@ import android.view.ViewGroup;
  * Created by guojishan on 2017/6/4.
  */
 
-public class Fragment2 extends Fragment {
+public class ScanRecordFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // TODO Auto-generated method stub

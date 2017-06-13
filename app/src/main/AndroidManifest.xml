@@ -28,7 +28,9 @@
             android:name="com.amap.api.v2.apikey"
             android:value="18f83b3f91f8407d66eb17add7e8ea03" />
 
-        <activity android:name=".MainActivity">
+        <!-- android:windowSoftInputMode 设置键盘升起效果 -->
+        <activity android:name=".MainActivity"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
