@@ -132,7 +132,6 @@
     </LinearLayout>
 
 
-
     <ImageButton
         android:id="@+id/scanButton"
         android:layout_width="60dp"
@@ -143,6 +142,19 @@
         android:padding="2dp"
         android:scaleType="fitCenter"
         android:src="@drawable/scan_button" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/shoppingCart"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="40dp"
+        android:clickable="true"
+        android:visibility="visible"
+        android:src="@android:drawable/ic_menu_add"
+        app:fabSize="mini" />
 </RelativeLayout>
     </FrameLayout>
 
@@ -153,5 +165,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         app:menu="@menu/nav_menu"
-        app:headerLayout="@layout/nav_header"/>
+        app:headerLayout="@layout/nav_header">
+
+    </android.support.design.widget.NavigationView>
 </android.support.v4.widget.DrawerLayout>
