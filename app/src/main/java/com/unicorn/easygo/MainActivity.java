@@ -1,8 +1,10 @@
 package com.unicorn.easygo;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -23,6 +25,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -34,8 +37,10 @@ import com.unicorn.easygo.activity.MarketRecommendActivity;
 import com.unicorn.easygo.activity.MessageActivity;
 import com.unicorn.easygo.activity.OrderActivity;
 import com.unicorn.easygo.activity.PersonalInfoActivity;
+import com.unicorn.easygo.activity.ResultActivity;
 import com.unicorn.easygo.activity.WalletActivity;
 import com.unicorn.easygo.utils.FontUtil;
+import com.unicorn.easygo.zxing.android.CaptureActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +52,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
 
     private final static String PREORDER_FRAGMENT_TAG = "preOederFragment";
     private final static String SCANRECORD_FRAGMENT_TAG = "scanRecordFragment";
+    private static final String DECODED_CONTENT_KEY = "codedContent";
+    private static final String DECODED_BITMAP_KEY = "codedBitmap";
+
+
+    private static final int REQUEST_CODE_SCAN = 0x0000;
 
     private View preOrderView, scanRecordView;
     //private ViewPager viewPager;
@@ -55,6 +65,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private TextView tv_one;
     private TextView tv_two;
     private TextView appName;
+    private TextView result;
 
 
     /**
@@ -71,6 +82,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private ImageButton personal;
     //左边滑动窗口（我的）
     private DrawerLayout mDrawerLayout;
+
+    private ImageButton scanButton;
 
     private ArrayList<View> listViews;
     private int offset = 0;//移动条图片的偏移量
@@ -99,6 +112,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         marketRecommendView = (ImageButton) findViewById(R.id.marketRecommend);
         personal = (ImageButton)findViewById(R.id.personal);
         //用户头像
+        scanButton = (ImageButton)findViewById(R.id.scanButton);
+        result = (TextView)findViewById(R.id.result);
         NavigationView navView = (NavigationView)findViewById(R.id.nav_view);
         navView.setCheckedItem(R.id.nav_order);//默认选中我的订单选项
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
@@ -166,6 +181,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         tv_two.setOnClickListener(this);
         marketRecommendView.setOnClickListener(this);
         personal.setOnClickListener(this);
+        scanButton.setOnClickListener(this);
         //userimage.setOnClickListener(this);
         //username.setOnClickListener(this);
 
@@ -218,8 +234,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
             case R.id.user_image:
                 break;
             case R.id.username:
-                Intent uesrname_intent = new Intent(this,PersonalInfoActivity.class);
-                this.startActivity(uesrname_intent);
+                Intent username_intent = new Intent(this,PersonalInfoActivity.class);
+                this.startActivity(username_intent);
+                break;
+            case R.id.scanButton:
+                Intent scan_intent = new Intent(MainActivity.this, CaptureActivity.class);
+                startActivityForResult(scan_intent, REQUEST_CODE_SCAN);
                 break;
         }
     }
@@ -264,6 +284,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
                 transaction.hide(from).add(R.id.main_frame, to).commit();
             } else {
                 transaction.hide(from).show(to).commit();
+            }
+        }
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        // 扫描二维码/条码回传
+        if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
+            if (data != null) {
+
+                String content = data.getStringExtra(DECODED_CONTENT_KEY);
+                //Bitmap bitmap = data.getParcelableExtra(DECODED_BITMAP_KEY);
+
+//                result.setText("解码结果： \n" + content);
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.VIEW");
+                Uri content_url = Uri.parse(content.toString());
+                intent.setData(content_url);
+                startActivity(intent);
+
             }
         }
     }
