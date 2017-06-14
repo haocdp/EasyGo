@@ -20,6 +20,6 @@ public class WalletActivity extends AppCompatActivity {
 
         TextView title = (TextView)findViewById(R.id.title_text);
         title.setText("我的钱包");
-        FontUtil.setFont(title,this,0);
+        FontUtil.setFont(title,this.getAssets(),0);
     }
 }

@@ -19,7 +19,7 @@ public class OrderActivity extends AppCompatActivity {
         setContentView(R.layout.order);
         TextView title = (TextView)findViewById(R.id.title_text);
         title.setText("我的订单");
-        FontUtil.setFont(title,this,0);
+        FontUtil.setFont(title,this.getAssets(),0);
 
     }
 }

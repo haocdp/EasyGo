@@ -193,9 +193,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
      * 设置页面字体
      */
     private void setFonts() {
-        FontUtil.setFont(appName, this, 0);
-        FontUtil.setFont(tv_one, this, 0);
-        FontUtil.setFont(tv_two, this, 0);
+        FontUtil.setFont(appName, this.getAssets(), 0);
+        FontUtil.setFont(tv_one, this.getAssets(), 0);
+        FontUtil.setFont(tv_two, this.getAssets(), 0);
     }
 
     public void onClick(View v) {

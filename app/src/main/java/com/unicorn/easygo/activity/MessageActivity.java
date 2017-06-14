@@ -18,6 +18,6 @@ public class MessageActivity extends AppCompatActivity {
         setContentView(R.layout.message);
         TextView title = (TextView)findViewById(R.id.title_text);
         title.setText("消息管理");
-        FontUtil.setFont(title,this,0);
+        FontUtil.setFont(title,this.getAssets(),0);
     }
 }

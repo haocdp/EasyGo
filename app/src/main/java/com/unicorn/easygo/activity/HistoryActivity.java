@@ -18,6 +18,6 @@ public class HistoryActivity extends AppCompatActivity {
         setContentView(R.layout.history);
         TextView title = (TextView)findViewById(R.id.title_text);
         title.setText("我的足迹");
-        FontUtil.setFont(title,this,0);
+        FontUtil.setFont(title,this.getAssets(),0);
     }
 }

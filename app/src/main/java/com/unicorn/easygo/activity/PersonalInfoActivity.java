@@ -19,6 +19,6 @@ public class PersonalInfoActivity extends AppCompatActivity {
         setContentView(R.layout.personalinfo);
         TextView title = (TextView)findViewById(R.id.title_text);
         title.setText("个人信息");
-        FontUtil.setFont(title,this,0);
+        FontUtil.setFont(title,this.getAssets(),0);
     }
 }

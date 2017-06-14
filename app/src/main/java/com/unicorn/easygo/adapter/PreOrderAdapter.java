@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
+import com.unicorn.easygo.MainActivity;
 import com.unicorn.easygo.R;
+import com.unicorn.easygo.utils.FontUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -91,6 +93,7 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
     public void onBindViewHolder(PreOrderViewHolder holder, int position) {
         String item = orderItems.get(position);
         holder.editText.setText(item);
+        FontUtil.setFont(holder.editText, context.getAssets(), 0);
         holder.editText.setFocusableInTouchMode(false);
         holder.toggleButton.setChecked(false);
     }
