@@ -69,7 +69,8 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
                     }
 
                     if(!"".equals(beforeText) && beforeText != null &&
-                            !"".equals(afterText) && afterText != null)
+                            !"".equals(afterText) && afterText != null &&
+                            !beforeText.equals(afterText))
                         orderItems.set(preOrderViewHolder.getAdapterPosition(), afterText);
                 }
             }
@@ -101,8 +102,8 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
 
     public static class PreOrderViewHolder extends RecyclerView.ViewHolder {
 
-        ToggleButton toggleButton;
-        EditText editText;
+        public ToggleButton toggleButton;
+        public EditText editText;
         public PreOrderViewHolder(View itemView) {
             super(itemView);
             editText = (EditText) itemView.findViewById(R.id.orderItem);

@@ -25,7 +25,6 @@ import android.view.animation.TranslateAnimation;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.unicorn.easygo.activity.CouponActivity;
@@ -91,7 +90,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private void initViews() {
         //左边滑动窗口（我的）
         mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
         //viewPager = (ViewPager) findViewById(R.id.viewpager);
         tv_one = (TextView) findViewById(R.id.tv_one);
         tv_two = (TextView) findViewById(R.id.tv_two);
@@ -99,9 +97,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         //img_cursor = (ImageView) findViewById(R.id.img_cursor);
         //CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         marketRecommendView = (ImageButton) findViewById(R.id.marketRecommend);
-        img_cursor = (ImageView) findViewById(R.id.img_cursor);
-        CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
-        marketRecommendView  = (ImageButton)findViewById(R.id.marketRecommend);
         personal = (ImageButton)findViewById(R.id.personal);
         //用户头像
         NavigationView navView = (NavigationView)findViewById(R.id.nav_view);
@@ -149,7 +144,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         offset = (screenW / 2 - bmpWidth) / 2;// 计算偏移量
         Matrix matrix = new Matrix();
         matrix.postTranslate(offset, 0);
-        img_cursor.setImageMatrix(matrix);// 设置动画初始位置
+        //img_cursor.setImageMatrix(matrix);// 设置动画初始位置
         //移动的距离
         one = offset * 2 + bmpWidth;// 移动一页的偏移量,比如1->2,或者2->3
 
