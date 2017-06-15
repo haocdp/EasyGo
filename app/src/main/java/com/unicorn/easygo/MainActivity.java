@@ -37,7 +37,6 @@ import com.unicorn.easygo.activity.MarketRecommendActivity;
 import com.unicorn.easygo.activity.MessageActivity;
 import com.unicorn.easygo.activity.OrderActivity;
 import com.unicorn.easygo.activity.PersonalInfoActivity;
-import com.unicorn.easygo.activity.ResultActivity;
 import com.unicorn.easygo.activity.WalletActivity;
 import com.unicorn.easygo.utils.FontUtil;
 import com.unicorn.easygo.zxing.android.CaptureActivity;
@@ -113,7 +112,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         personal = (ImageButton)findViewById(R.id.personal);
         //用户头像
         scanButton = (ImageButton)findViewById(R.id.scanButton);
-        result = (TextView)findViewById(R.id.result);
+        //result = (TextView)findViewById(R.id.result);
         NavigationView navView = (NavigationView)findViewById(R.id.nav_view);
         navView.setCheckedItem(R.id.nav_order);//默认选中我的订单选项
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
@@ -239,7 +238,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
                 break;
             case R.id.scanButton:
                 Intent scan_intent = new Intent(MainActivity.this, CaptureActivity.class);
-                startActivityForResult(scan_intent, REQUEST_CODE_SCAN);
+                //startActivityForResult(scan_intent, REQUEST_CODE_SCAN);
+                startActivity(scan_intent);
                 break;
         }
     }

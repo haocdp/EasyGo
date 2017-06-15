@@ -33,7 +33,8 @@
             android:value="18f83b3f91f8407d66eb17add7e8ea03" />
 
         <!-- android:windowSoftInputMode 设置键盘升起效果 -->
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,19 +42,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MarketRecommendActivity"></activity>
-        <activity android:name=".activity.OrderActivity"></activity>
-        <activity android:name=".activity.BaseActivity"></activity>
-        <activity android:name=".activity.CouponActivity"></activity>
-        <activity android:name=".activity.HistoryActivity"></activity>
-        <activity android:name=".activity.MessageActivity"></activity>
-        <activity android:name=".activity.PersonalInfoActivity"></activity>
-        <activity android:name=".activity.WalletActivity"></activity>
+        <activity android:name=".activity.MarketRecommendActivity" />
+        <activity android:name=".activity.OrderActivity" />
+        <activity android:name=".activity.BaseActivity" />
+        <activity android:name=".activity.CouponActivity" />
+        <activity android:name=".activity.HistoryActivity" />
+        <activity android:name=".activity.MessageActivity" />
+        <activity android:name=".activity.PersonalInfoActivity" />
+        <activity android:name=".activity.WalletActivity" />
+        <activity android:name=".activity.ScanShoppingCartActivity" />
         <activity
             android:name=".zxing.android.CaptureActivity"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:screenOrientation="portrait" >
-        </activity>
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".activity.ScanGoodsInfoActivity"></activity>
     </application>
 
 </manifest>

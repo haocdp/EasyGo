@@ -21,6 +21,8 @@ import com.google.zxing.DecodeHintType;
 import com.google.zxing.Result;
 
 import com.unicorn.easygo.R;
+import com.unicorn.easygo.activity.ScanGoodsInfoActivity;
+import com.unicorn.easygo.activity.ScanShoppingCartActivity;
 import com.unicorn.easygo.zxing.camera.CameraManager;
 import com.unicorn.easygo.zxing.view.ViewfinderView;
 
@@ -187,11 +189,15 @@ public final class CaptureActivity extends Activity implements
 
             Toast.makeText(this, "扫描成功", Toast.LENGTH_SHORT).show();
 
-            Intent intent = getIntent();
+            //Intent intent = getIntent();
+            //intent.putExtra("codedContent", rawResult.getText());
+            //intent.putExtra("codedBitmap", barcode);
+            //setResult(RESULT_OK, intent);
+            //finish();
+
+            Intent intent = new Intent(this, ScanGoodsInfoActivity.class);
             intent.putExtra("codedContent", rawResult.getText());
-            intent.putExtra("codedBitmap", barcode);
-            setResult(RESULT_OK, intent);
-            finish();
+            startActivity(intent);
         }
 
     }

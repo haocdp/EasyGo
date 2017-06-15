@@ -125,4 +125,7 @@
 
     <string name="viewfinderview_status_text1">将二维码/条码放入取景框内</string>
     <string name="viewfinderview_status_text2">即可自动扫描</string>
+
+    <string name="haveAScan">扫一扫</string>
+    <string name="goodsInfo">商品信息</string>
 </resources>
