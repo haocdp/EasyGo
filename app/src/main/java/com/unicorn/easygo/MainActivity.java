@@ -288,23 +288,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         }
     }
 
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        // 扫描二维码/条码回传
-        if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
-            if (data != null) {
-
-                String content = data.getStringExtra(DECODED_CONTENT_KEY);
-                //Bitmap bitmap = data.getParcelableExtra(DECODED_BITMAP_KEY);
-
-//                result.setText("解码结果： \n" + content);
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.VIEW");
-                Uri content_url = Uri.parse(content.toString());
-                intent.setData(content_url);
-                startActivity(intent);
-
-            }
-        }
-    }
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        // 扫描二维码/条码回传
+//        if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
+//            if (data != null) {
+//
+//                String content = data.getStringExtra(DECODED_CONTENT_KEY);
+//                //Bitmap bitmap = data.getParcelableExtra(DECODED_BITMAP_KEY);
+//
+////                result.setText("解码结果： \n" + content);
+////                Intent intent = new Intent();
+////                intent.setAction("android.intent.action.VIEW");
+////                Uri content_url = Uri.parse(content.toString());
+////                intent.setData(content_url);
+////                startActivity(intent);
+//
+//            }
+//        }
+ //   }
 }
