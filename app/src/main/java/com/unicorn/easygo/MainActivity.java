@@ -64,7 +64,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private TextView tv_one;
     private TextView tv_two;
     private TextView appName;
-    private TextView result;
+
 
 
     /**
@@ -81,8 +81,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private ImageButton personal;
     //左边滑动窗口（我的）
     private DrawerLayout mDrawerLayout;
-
+    //扫一扫
     private ImageButton scanButton;
+    //个人信息编辑按钮
+    private ImageButton edit;
+    //用户头像
+    private CircleImageView userimage;
 
     private ArrayList<View> listViews;
     private int offset = 0;//移动条图片的偏移量
@@ -110,9 +114,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         //CircleIndicator indicator = (CircleIndicator) findViewById(R.id.indicator);
         marketRecommendView = (ImageButton) findViewById(R.id.marketRecommend);
         personal = (ImageButton)findViewById(R.id.personal);
-        //用户头像
         scanButton = (ImageButton)findViewById(R.id.scanButton);
-        //result = (TextView)findViewById(R.id.result);
         NavigationView navView = (NavigationView)findViewById(R.id.nav_view);
         navView.setCheckedItem(R.id.nav_order);//默认选中我的订单选项
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
@@ -146,9 +148,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         });
         View headerView = navView.getHeaderView(0);
         //用户头像
-        CircleImageView userimage=(CircleImageView)headerView.findViewById(R.id.user_image);
-        //用户名
-        TextView username = (TextView)findViewById(R.id.username);
+        userimage=(CircleImageView)headerView.findViewById(R.id.user_image);
+        edit = (ImageButton)headerView.findViewById(R.id.edit);
+
 
         //下划线动画的相关设置：
         bmpWidth = BitmapFactory.decodeResource(getResources(), R.mipmap.line).getWidth();// 获取图片宽度
@@ -181,8 +183,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         marketRecommendView.setOnClickListener(this);
         personal.setOnClickListener(this);
         scanButton.setOnClickListener(this);
+        edit.setOnClickListener(this);
         //userimage.setOnClickListener(this);
-        //username.setOnClickListener(this);
+
 
 
         //viewPager.addOnPageChangeListener(this);
@@ -232,13 +235,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
                 break;
             case R.id.user_image:
                 break;
-            case R.id.username:
-                Intent username_intent = new Intent(this,PersonalInfoActivity.class);
-                this.startActivity(username_intent);
+            case R.id.edit:
+                Intent edit_intent = new Intent(this,PersonalInfoActivity.class);
+                this.startActivity(edit_intent);
                 break;
             case R.id.scanButton:
                 Intent scan_intent = new Intent(MainActivity.this, CaptureActivity.class);
-                //startActivityForResult(scan_intent, REQUEST_CODE_SCAN);
                 startActivity(scan_intent);
                 break;
         }
@@ -287,24 +289,4 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
             }
         }
     }
-
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        // 扫描二维码/条码回传
-//        if (requestCode == REQUEST_CODE_SCAN && resultCode == RESULT_OK) {
-//            if (data != null) {
-//
-//                String content = data.getStringExtra(DECODED_CONTENT_KEY);
-//                //Bitmap bitmap = data.getParcelableExtra(DECODED_BITMAP_KEY);
-//
-////                result.setText("解码结果： \n" + content);
-////                Intent intent = new Intent();
-////                intent.setAction("android.intent.action.VIEW");
-////                Uri content_url = Uri.parse(content.toString());
-////                intent.setData(content_url);
-////                startActivity(intent);
-//
-//            }
-//        }
- //   }
 }
