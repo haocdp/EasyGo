@@ -34,7 +34,7 @@
 
         <!-- android:windowSoftInputMode 设置键盘升起效果 -->
         <activity android:name=".MainActivity"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustPan">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

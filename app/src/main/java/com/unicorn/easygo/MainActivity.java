@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
@@ -220,10 +221,22 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         switch (v.getId()) {
             case R.id.tv_one:
                 //viewPager.setCurrentItem(0);
+                tv_one.setBackground(
+                        getResources().getDrawable(R.mipmap.mainpage_title_icon,
+                                null));
+                tv_two.setBackground(
+                        getResources().getDrawable(R.mipmap.mainpage_title_unselect_icon,
+                                null));
                 switchFragment(SCANRECORD_FRAGMENT_TAG, PREORDER_FRAGMENT_TAG);
                 break;
             case R.id.tv_two:
                 //viewPager.setCurrentItem(1);
+                tv_two.setBackground(
+                        getResources().getDrawable(R.mipmap.mainpage_title_icon,
+                                null));
+                tv_one.setBackground(
+                        getResources().getDrawable(R.mipmap.mainpage_title_unselect_icon,
+                                null));
                 switchFragment(PREORDER_FRAGMENT_TAG, SCANRECORD_FRAGMENT_TAG);
                 break;
             case R.id.marketRecommend:

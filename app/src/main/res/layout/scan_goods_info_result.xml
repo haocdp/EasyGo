@@ -19,20 +19,31 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/goods_image"
-            android:layout_width="170dp"
-            android:layout_height="195dp"
+            android:layout_width="150dp"
+            android:layout_height="170dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:src="@drawable/nav_icon"
             app:civ_border_color="@color/assistColor_black"
             app:civ_border_width="3dp" />
 
+        <Button
+            android:id="@+id/btn_add_order"
+            android:layout_width="100dp"
+            android:layout_height="26dp"
+            android:layout_below="@+id/goods_image"
+            android:layout_centerHorizontal="true"
+            android:background="@mipmap/btn_add_order_background"
+            android:text="加入订单"
+            android:textColor="@color/assistColor_white" />
+
         <TextView
             android:id="@+id/goods_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/goods_image"
+            android:layout_below="@+id/btn_add_order"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:text="商品名称"
             android:textColor="@color/assistColor_black"
             android:textSize="14sp" />
@@ -108,16 +119,17 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout_price"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/goods_start_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="111dp"
+                android:layout_height="30dp"
                 android:layout_marginRight="8dp"
                 android:layout_weight="1"
-                android:background="@color/assistColor_black"
+                android:background="@mipmap/time_background"
+                android:gravity="center"
                 android:padding="5dp"
                 android:text="2017.3.14"
                 android:textColor="@color/assistColor_white" />
@@ -132,11 +144,12 @@
 
             <TextView
                 android:id="@+id/goods_end_date"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="111dp"
+                android:layout_height="30dp"
                 android:layout_marginLeft="8dp"
                 android:layout_weight="1"
-                android:background="@color/assistColor_black"
+                android:background="@mipmap/time_background"
+                android:gravity="center"
                 android:padding="5dp"
                 android:text="2018.3.14"
                 android:textColor="@color/assistColor_white" />
@@ -144,34 +157,52 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="160dp"
             android:layout_below="@+id/linearLayout_date"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:layout_marginTop="20dp"
-            android:background="@color/mainColor"
+            android:layout_marginTop="15dp"
+            android:background="@mipmap/form_table_background"
             android:orientation="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="15dp"
                 android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="left|center_vertical"
+                    android:layout_marginRight="10dp"
+                    app:srcCompat="@mipmap/form_table_line" />
 
                 <TextView
                     android:id="@+id/goods_form_table"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_gravity="center"
                     android:text="配料表"
                     android:textColor="@color/assistColor_black" />
+
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="110dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right|center_vertical"
+                    android:layout_marginLeft="10dp"
+                    app:srcCompat="@mipmap/form_table_line" />
 
             </LinearLayout>
 
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
