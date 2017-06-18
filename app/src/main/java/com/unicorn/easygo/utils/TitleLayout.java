@@ -6,6 +6,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.unicorn.easygo.R;
@@ -18,7 +19,7 @@ public class TitleLayout extends LinearLayout {
     public TitleLayout(Context context, AttributeSet attrs){
         super(context,attrs);
         LayoutInflater.from(context).inflate(R.layout.title,this);
-        Button titleBack = (Button) findViewById(R.id.title_back);
+        ImageView titleBack = (ImageView) findViewById(R.id.title_back);
         titleBack.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
