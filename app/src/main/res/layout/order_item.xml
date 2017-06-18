@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp">
+
+    <ToggleButton
+        android:id="@+id/orderItem_toggleButton"
+        android:layout_width="25dp"
+        android:layout_height="26dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="25dp"
+        android:background="@drawable/selector_toggle_btn"
+        android:text="ToggleButton"
+        android:textIsSelectable="false"
+        android:textOff=" "
+        android:textOn=" " />
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/orderItem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="16dp"
+            android:layout_weight="4"
+            android:background="@null"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Name"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/iv_follow_me"
+            android:layout_width="21dp"
+            android:layout_height="23dp"
+            android:layout_marginLeft="52dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintLeft_toRightOf="@+id/orderItem"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/follow_me" />
+
+        <ImageView
+            android:id="@+id/iv_orderItem_divider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/orderItem"
+            app:srcCompat="@mipmap/divider" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</LinearLayout>

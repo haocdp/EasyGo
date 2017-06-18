@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.unicorn.easygo.utils.TitleLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </com.unicorn.easygo.utils.TitleLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/assistColor_black">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/linearLayout_shoppingCart"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:text="绑定购物车成功"
+            android:textColor="@color/assistColor_white"
+            android:textSize="24sp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout_shoppingCart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
+                android:layout_centerInParent="true"
+                android:layout_weight="1"
+                android:text="购物车编号:"
+                android:textColor="@color/assistColor_white"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/shoppingCartNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textView"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@+id/textView2"
+                android:layout_weight="1"
+                android:text="113235259"
+                android:textColor="@color/assistColor_white"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>
