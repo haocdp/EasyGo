@@ -33,9 +33,9 @@
             android:value="18f83b3f91f8407d66eb17add7e8ea03" />
 
         <!-- android:windowSoftInputMode 设置键盘升起效果 -->
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -53,23 +53,24 @@
         <activity android:name=".activity.ScanShoppingCartActivity" />
         <activity
             android:name=".zxing.android.CaptureActivity"
-            android:theme="@android:style/Theme.NoTitleBar"
-            android:screenOrientation="portrait" >
-        </activity>
-        <activity android:name=".activity.ResultActivity"/>
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" />
+            android:theme="@android:style/Theme.NoTitleBar"></activity>
+        <activity android:name=".activity.ResultActivity" />
+        android:screenOrientation="portrait"
+        android:theme="@android:style/Theme.NoTitleBar" />
         <activity android:name=".activity.ScanGoodsInfoActivity" />
         <activity android:name=".activity.LoginActivity">
-            <!--<intent-filter>
+
+            <!--
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>-->
+            </intent-filter>
+            -->
         </activity>
-        <activity android:name=".activity.RegisterActivity">
-
-        </activity>
+        <activity android:name=".activity.RegisterActivity"></activity>
+        <activity android:name=".activity.ConfirmOrderActivity"></activity>
     </application>
 
 </manifest>
