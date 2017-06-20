@@ -40,7 +40,7 @@ public class HistoryActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
     private void initItem(){
-            HistoryItem apple = new HistoryItem("Apple",R.drawable.apple_pic,"水果","5","200g","2017-06-16","2017-07-17");
+            HistoryItem apple = new HistoryItem("口口福开心果",R.drawable.goods,"坚果特产干果休闲食品","29.90","180g","2017-02-14","2018-02-14");
             mList.add(apple);
             HistoryItem banana = new HistoryItem("banana",R.drawable.banana_pic,"水果","5","500g","2017-06-16","2017-07-17");
             mList.add(banana);

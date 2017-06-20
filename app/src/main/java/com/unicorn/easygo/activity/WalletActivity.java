@@ -19,7 +19,11 @@ public class WalletActivity extends AppCompatActivity {
         setContentView(R.layout.wallet);
 
         TextView title = (TextView)findViewById(R.id.title_text);
+        TextView money = (TextView)findViewById(R.id.money);
+        TextView rmb = (TextView)findViewById(R.id.rmb);
         title.setText("我的钱包");
         FontUtil.setFont(title,this.getAssets(),0);
+        FontUtil.setFont(money,this.getAssets(),0);
+        FontUtil.setFont(rmb,this.getAssets(),0);
     }
 }

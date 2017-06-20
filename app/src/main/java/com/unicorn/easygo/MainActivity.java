@@ -85,7 +85,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     //扫一扫
     private ImageButton scanButton;
     //个人信息编辑按钮
-    private ImageButton edit;
+    private Button edit;
     //用户头像
     private CircleImageView userimage;
 
@@ -150,7 +150,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         View headerView = navView.getHeaderView(0);
         //用户头像
         userimage=(CircleImageView)headerView.findViewById(R.id.user_image);
-        edit = (ImageButton)headerView.findViewById(R.id.edit);
+        edit = (Button)headerView.findViewById(R.id.edit);
 
 
         //下划线动画的相关设置：
