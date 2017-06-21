@@ -34,6 +34,7 @@ import android.widget.TextView;
 import com.unicorn.easygo.activity.CouponActivity;
 import com.unicorn.easygo.activity.HistoryActivity;
 import com.unicorn.easygo.activity.BaseActivity;
+import com.unicorn.easygo.activity.LoginActivity;
 import com.unicorn.easygo.activity.MarketRecommendActivity;
 import com.unicorn.easygo.activity.MessageActivity;
 import com.unicorn.easygo.activity.OrderActivity;
@@ -54,7 +55,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private final static String SCANRECORD_FRAGMENT_TAG = "scanRecordFragment";
     private static final String DECODED_CONTENT_KEY = "codedContent";
     private static final String DECODED_BITMAP_KEY = "codedBitmap";
-
+    private Intent intent = null;
+    private String name;//账号
 
     private static final int REQUEST_CODE_SCAN = 0x0000;
 
@@ -88,6 +90,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private Button edit;
     //用户头像
     private CircleImageView userimage;
+    //用户名
+    private TextView username;
 
     private ArrayList<View> listViews;
     private int offset = 0;//移动条图片的偏移量
@@ -102,6 +106,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         initViews();
         initFragment();
         setFonts();
+        intent = this.getIntent();
+        name = intent.getStringExtra("name");// 接收登录界面的数据
+//        if (name == null) {
+//            intent = new Intent(this, LoginActivity.class);
+//            startActivity(intent);
+//            finish();
+//        } else {
+//            //对用户名进行赋值
+//            //username.setText(name);
+//        }
     }
 
     private void initViews() {
@@ -150,6 +164,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         View headerView = navView.getHeaderView(0);
         //用户头像
         userimage=(CircleImageView)headerView.findViewById(R.id.user_image);
+        //用户名
+        username=(TextView)findViewById(R.id.username);
+        //编辑
         edit = (Button)headerView.findViewById(R.id.edit);
 
 

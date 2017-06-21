@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.res.AssetManager;
 import android.graphics.Typeface;
 import android.widget.EditText;
+import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /**
@@ -50,4 +52,6 @@ public class FontUtil {
 
         editText.setTypeface(typeface);
     }
+
+
 }

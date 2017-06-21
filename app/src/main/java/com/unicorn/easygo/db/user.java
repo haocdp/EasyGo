@@ -11,10 +11,6 @@ public class user implements Serializable {
     private int userid;
     private String username;
     private String password;
-    private String sex;
-    private String vip;
-    private double money;
-
 
 
     public String getUsername() {
@@ -41,27 +37,4 @@ public class user implements Serializable {
         this.password = password;
     }
 
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex;
-    }
-
-    public String getVip() {
-        return vip;
-    }
-
-    public void setVip(String vip) {
-        this.vip = vip;
-    }
-
-    public double getMoney() {
-        return money;
-    }
-
-    public void setMoney(double money) {
-        this.money = money;
-    }
 }
