@@ -18,6 +18,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.Gravity;
@@ -106,8 +107,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         initViews();
         initFragment();
         setFonts();
-        intent = this.getIntent();
-        name = intent.getStringExtra("name");// 接收登录界面的数据
+        //intent = this.getIntent();
+        //name = intent.getStringExtra("name");// 接收登录界面的数据
+       // Log.i("MainActivity",name);
 //        if (name == null) {
 //            intent = new Intent(this, LoginActivity.class);
 //            startActivity(intent);

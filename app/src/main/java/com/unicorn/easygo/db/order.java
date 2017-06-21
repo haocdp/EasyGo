@@ -8,9 +8,9 @@ import java.util.Date;
 
 public class order {
     private int orderId;
-    private int goodId;
-    private int orderNumber;
-    private int dealDate;
+    private int goodId;//商品条码
+    private int orderNumber;//订单编号
+    private int dealDate;//成交时间
 
     public int getOrderId() {
         return orderId;
