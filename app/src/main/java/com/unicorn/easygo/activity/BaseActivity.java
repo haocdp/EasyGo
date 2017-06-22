@@ -3,6 +3,7 @@ package com.unicorn.easygo.activity;
 import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -14,6 +15,30 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+    }
+
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN ) {
+            View v = getCurrentFocus();
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+
+            if (v != null) {
+                if (inputMethodManager.isActive()) {
+                    inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+                v.setFocusable(false);
+                v.setFocusableInTouchMode(false);
+                return super.dispatchKeyEvent(event);
+            }
+        }
+
+        if (getWindow().superDispatchKeyEvent(event)) {
+            return true;
+        }
+
+        return onKeyUp(KeyEvent.KEYCODE_BACK, event);
     }
 
     /**
