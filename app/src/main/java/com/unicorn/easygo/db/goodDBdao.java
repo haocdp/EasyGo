@@ -25,16 +25,16 @@ public class goodDBdao {
      * 添加一条记录
      */
 
-    public void add(String goodName,double weight, double price,Date productionDate,
-            Date storage_life, String energy, String protein, String fat,String carbohydrate,String na){
+    public void add(String goodName,double weight, double price,int productionDate,
+            int storage_life, String energy, String protein, String fat,String carbohydrate,String na){
         SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
         if (db.isOpen()) {
             ContentValues values = new ContentValues();
             values.put("goodName", goodName);
             values.put("weight", weight);
             values.put("price", price);
-            values.put("productionDate", String.valueOf(productionDate));
-            values.put("storage_life", String.valueOf(storage_life));
+            values.put("productionDate", productionDate);
+            values.put("storage_life", storage_life);
             values.put("energy", energy);
             values.put("protein", protein);
             values.put("fat", fat);
@@ -62,8 +62,8 @@ public class goodDBdao {
      * 数据库的更改操作
      * 根据商品编号修改
      */
-    public void update(int goodId,String goodName,double weight, double price,Date productionDate,
-                       Date storage_life, String energy, String protein, String fat,String carbohydrate,String na) {
+    public void update(int goodId,String goodName,double weight, double price,int productionDate,
+                       int storage_life, String energy, String protein, String fat,String carbohydrate,String na) {
         SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
         if (db.isOpen()) {
             ContentValues values = new ContentValues();
@@ -71,8 +71,8 @@ public class goodDBdao {
             values.put("goodName", goodName);
             values.put("weight", weight);
             values.put("price", price);
-            values.put("productionDate", String.valueOf(productionDate));
-            values.put("storage_life", String.valueOf(storage_life));
+            values.put("productionDate", productionDate);
+            values.put("storage_life", storage_life);
             values.put("energy", energy);
             values.put("protein", protein);
             values.put("fat", fat);
@@ -99,8 +99,8 @@ public class goodDBdao {
                 String goodName = cursor.getString(cursor.getColumnIndex("goodName"));
                 double weight = cursor.getDouble(cursor.getColumnIndex("weight"));
                 double price = cursor.getDouble(cursor.getColumnIndex("price"));
-                String productionDate = cursor.getString(cursor.getColumnIndex("productionDate"));
-                String storage_life = cursor.getString(cursor.getColumnIndex("storage_life"));
+                int productionDate = cursor.getInt(cursor.getColumnIndex("productionDate"));
+                int storage_life = cursor.getInt(cursor.getColumnIndex("storage_life"));
                 String energy = cursor.getString(cursor.getColumnIndex("energy"));
                 String protein = cursor.getString(cursor.getColumnIndex("protein"));
                 String fat = cursor.getString(cursor.getColumnIndex("fat"));

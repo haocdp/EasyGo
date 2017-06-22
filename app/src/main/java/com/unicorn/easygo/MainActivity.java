@@ -56,7 +56,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private final static String SCANRECORD_FRAGMENT_TAG = "scanRecordFragment";
     private static final String DECODED_CONTENT_KEY = "codedContent";
     private static final String DECODED_BITMAP_KEY = "codedBitmap";
-    private Intent intent = null;
+    private Intent intent;
     private String name;//账号
 
     private static final int REQUEST_CODE_SCAN = 0x0000;
@@ -107,16 +107,16 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         initViews();
         initFragment();
         setFonts();
-        //intent = this.getIntent();
-        //name = intent.getStringExtra("name");// 接收登录界面的数据
-       // Log.i("MainActivity",name);
+//        intent = this.getIntent();
+//        name = intent.getStringExtra("name");// 接收登录界面的数据
+//        Log.i("MainActivity",name);
 //        if (name == null) {
 //            intent = new Intent(this, LoginActivity.class);
 //            startActivity(intent);
 //            finish();
 //        } else {
 //            //对用户名进行赋值
-//            //username.setText(name);
+//          //  username.setText("张三");
 //        }
     }
 

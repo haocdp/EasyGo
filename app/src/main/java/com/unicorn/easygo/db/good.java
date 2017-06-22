@@ -13,8 +13,8 @@ public class good {
     private double price;
 //    private Date productionDate;
 //    private Date storage_life;
-    private String productionDate;
-    private String storage_life;
+    private int productionDate;
+    private int storage_life;
     private String energy;
     private String protein;
     private String fat;
@@ -57,21 +57,6 @@ public class good {
         return energy;
     }
 
-    public String getProductionDate() {
-        return productionDate;
-    }
-
-    public void setProductionDate(String productionDate) {
-        this.productionDate = productionDate;
-    }
-
-    public String getStorage_life() {
-        return storage_life;
-    }
-
-    public void setStorage_life(String storage_life) {
-        this.storage_life = storage_life;
-    }
 
     public void setEnergy(String energy) {
         this.energy = energy;
@@ -87,6 +72,22 @@ public class good {
 
     public String getFat() {
         return fat;
+    }
+
+    public int getProductionDate() {
+        return productionDate;
+    }
+
+    public void setProductionDate(int productionDate) {
+        this.productionDate = productionDate;
+    }
+
+    public int getStorage_life() {
+        return storage_life;
+    }
+
+    public void setStorage_life(int storage_life) {
+        this.storage_life = storage_life;
     }
 
     public void setFat(String fat) {

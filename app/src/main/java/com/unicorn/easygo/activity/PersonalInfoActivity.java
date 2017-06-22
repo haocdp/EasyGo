@@ -8,11 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.unicorn.easygo.R;
-import com.unicorn.easygo.entity.PersonItem;
 import com.unicorn.easygo.utils.FontUtil;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by guojishan on 2017/6/8.

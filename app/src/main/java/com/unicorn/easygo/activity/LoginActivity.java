@@ -69,10 +69,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                     result = userdbdao.findLogin(loginName.getText().toString(),loginPwd.getText().toString());
                     if(result){//若账号存在，判断密码是否正确
                         Intent login_intent = new Intent(this,MainActivity.class);
+                        login_intent.putExtra("name", loginName.getText	().toString().trim());
                         startActivity(login_intent);
 
-                        login_intent.putExtra("name", loginName.getText	().toString()
-                                .trim());
                     }else{
                         Toast.makeText(getApplicationContext(),"密码错误，请重试",Toast.LENGTH_SHORT).show();
                     }
