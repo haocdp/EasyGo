@@ -20,6 +20,7 @@ public class good {
     private String fat;
     private String carbohydrate;
     private String na;
+    private String imagepath;
 
     public int getGoodId() {
         return goodId;
@@ -108,5 +109,13 @@ public class good {
 
     public void setNa(String na) {
         this.na = na;
+    }
+
+    public String getImagepath() {
+        return imagepath;
+    }
+
+    public void setImagepath(String imagepath) {
+        this.imagepath = imagepath;
     }
 }

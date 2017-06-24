@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.unicorn.easygo.R;
 import com.unicorn.easygo.entity.HistoryItem;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -70,4 +71,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
     public int getItemCount(){
         return mList.size();
     }
+
+    //动态添加item子项
+    public int getItemViewType(int position){
+        return position;
+    }
+
+//    public void add(int position,DataModel data){
+//        if(mData == null){
+//            mData = new LinkedList<>();
+//        }
+//        mData.add(position,data);
+//        notifyItemInserted(position); //Attention!
+//    }
 }

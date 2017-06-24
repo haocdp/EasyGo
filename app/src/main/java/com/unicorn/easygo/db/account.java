@@ -6,6 +6,7 @@ package com.unicorn.easygo.db;
 
 public class account {
     private int id;
+    private int userId;
     private String sex;
     private String vip;
     private double money;
@@ -40,5 +41,13 @@ public class account {
 
     public void setMoney(double money) {
         this.money = money;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }

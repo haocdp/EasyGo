@@ -20,13 +20,14 @@ public class accountDBdao {
     /**
      * 添加一条记录
      */
-    public void add(String sex,String vip,double money) {
+    public void add(String sex,String vip,double money,int userId) {
         SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
         if (db.isOpen()) {
             ContentValues values = new ContentValues();
             values.put("sex", sex);//性别
             values.put("vip", vip);// 会员
             values.put("money", money);// 金钱
+            values.put("userId", userId);// 金钱
             db.insert("account", null, values); // 组拼sql语句完成的添加的操作
             db.close();
         }
@@ -45,13 +46,15 @@ public class accountDBdao {
     /**
      * 数据库的更改操作
      */
-    public void update(String accountid,String sex,String vip,double money) {
+    public void update(String accountid,String sex,String vip,double money,int userId) {
         SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
         if (db.isOpen()) {
             ContentValues values = new ContentValues();
             values.put("sex", sex);
             values.put("vip", vip);
             values.put("money", money);
+            values.put("money", money);
+            values.put("userId", userId);
             db.update("account", values, "accountid=?",
                     new String[] { accountid });
             db.close();

@@ -1,36 +1,27 @@
 package com.unicorn.easygo;
 
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.graphics.Rect;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.unicorn.easygo.activity.CouponActivity;
 import com.unicorn.easygo.activity.HistoryActivity;
@@ -41,6 +32,13 @@ import com.unicorn.easygo.activity.MessageActivity;
 import com.unicorn.easygo.activity.OrderActivity;
 import com.unicorn.easygo.activity.PersonalInfoActivity;
 import com.unicorn.easygo.activity.WalletActivity;
+import com.unicorn.easygo.db.MyDBOpenHelper;
+import com.unicorn.easygo.db.accountDBdao;
+import com.unicorn.easygo.db.goodDBdao;
+import com.unicorn.easygo.db.scanRecordDBdao;
+import com.unicorn.easygo.db.shoppingCartDBdao;
+import com.unicorn.easygo.db.testDBdao;
+import com.unicorn.easygo.db.userDBdao;
 import com.unicorn.easygo.utils.FontUtil;
 import com.unicorn.easygo.zxing.android.CaptureActivity;
 
@@ -48,7 +46,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
-import me.relex.circleindicator.CircleIndicator;
 
 public class MainActivity extends BaseActivity implements View.OnClickListener,ViewPager.OnPageChangeListener {
 
@@ -69,6 +66,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private TextView tv_two;
     private TextView appName;
 
+    //建立数据库
+    private goodDBdao gooddbdao;
+    private accountDBdao acdbdao;
+    private scanRecordDBdao scandbdao;
+    private shoppingCartDBdao sCartdbdao;
+    private userDBdao userdbdao;
+    private testDBdao testdbdao;
 
 
     /**
@@ -99,25 +103,67 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private int currIndex = 0;//当前页面的编号
     private int bmpWidth;// 移动条图片的长度
     private int one = 0; //移动条滑动一页的距离
+    private MyDBOpenHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+//数据库建立
+
+        gooddbdao = new goodDBdao(getApplicationContext());
+        acdbdao = new accountDBdao(getApplicationContext());
+        scandbdao = new scanRecordDBdao(getApplicationContext());
+        sCartdbdao = new shoppingCartDBdao(getApplicationContext());
+        userdbdao = new userDBdao(getApplicationContext());
+        testdbdao = new testDBdao(getApplicationContext());
+        //添加商品信息
+        gooddbdao.add("乐事薯片",100,8.5,20170621,11,"357千焦／每100克","15克／每100克","11克／每100克","3.3克／每100克","70毫克／每100克","images/liulian.png");
+        gooddbdao.add("伊利益消复原乳",450,7.8,20170615,21,"357千焦／每100克","2.8克／每100克","11克／每100克","3.3克／每100克","70毫克／每100克","images/liulian.png");
+        gooddbdao.add("乐事薯片",100,8.5,201706221,12,"357千焦／每100克","2.8克／每100克","11克／每100克","3.3克／每100克","70毫克／每100克","images/liulian.png");
+        gooddbdao.add("乐事薯片",100,8.5,201706221,10,"357千焦／每100克","2.8克／每100克","11克／每100克","3.3克／每100克","70毫克／每100克","images/liulian.png");
+        gooddbdao.add("乐事薯片",100,8.5,201706221,9,"357千焦／每100克","2.8克／每100克","11克／每100克","3.3克／每100克","70毫克／每100克","images/liulian.png");
+        gooddbdao.add("乐事薯片",100,8.5,201706221,8,"357千焦／每100克","2.8克／每100克","11克／每100克","3.3克／每100克","70毫克／每100克","images/liulian.png");
+        //添加账户信息
+        acdbdao.add("女","是",238,1);
+        acdbdao.add("男","是",238,2);
+        acdbdao.add("男","是",1738,3);
+        acdbdao.add("女","是",538,4);
+        //扫描信息
+        scandbdao.add(1,1,20170623);
+        scandbdao.add(2,1,20170623);
+        scandbdao.add(3,1,20170623);
+        //购物车信息
+        sCartdbdao.add(1);
+        sCartdbdao.add(2);
+        sCartdbdao.add(3);
+        sCartdbdao.add(4);
+        //用户信息
+        userdbdao.add("zhangsan","123456");
+        userdbdao.add("lisi","123456");
+        userdbdao.add("login","123456");
+        //测试
+        testdbdao.add(2,1,1);
+        testdbdao.add(2,1,1);
+
+        Toast.makeText(getApplicationContext(), "数据添加成 功 ！",
+                Toast.LENGTH_SHORT).show();
+
         initViews();
         initFragment();
         setFonts();
-//        intent = this.getIntent();
-//        name = intent.getStringExtra("name");// 接收登录界面的数据
-//        Log.i("MainActivity",name);
-//        if (name == null) {
-//            intent = new Intent(this, LoginActivity.class);
-//            startActivity(intent);
-//            finish();
-//        } else {
-//            //对用户名进行赋值
-//          //  username.setText("张三");
-//        }
+        intent = this.getIntent();
+        name = intent.getStringExtra("name");// 接收登录界面的数据
+        Log.i("MainActivity",name);
+        if (name == null) {
+            intent = new Intent(this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            //对用户名进行赋值
+            username.setText(name);
+        }
     }
 
     private void initViews() {
@@ -167,7 +213,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         //用户头像
         userimage=(CircleImageView)headerView.findViewById(R.id.user_image);
         //用户名
-        username=(TextView)findViewById(R.id.username);
+        username=(TextView)headerView.findViewById(R.id.username);
         //编辑
         edit = (Button)headerView.findViewById(R.id.edit);
 

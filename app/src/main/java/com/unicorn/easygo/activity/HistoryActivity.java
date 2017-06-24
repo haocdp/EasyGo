@@ -1,18 +1,24 @@
 package com.unicorn.easygo.activity;
 
 import android.content.ClipData;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.unicorn.easygo.R;
 import com.unicorn.easygo.adapter.RecyclerViewAdapter;
+import com.unicorn.easygo.db.good;
+import com.unicorn.easygo.db.goodDBdao;
 import com.unicorn.easygo.entity.HistoryItem;
 import com.unicorn.easygo.utils.FontUtil;
 
+import java.io.BufferedInputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +29,8 @@ import java.util.List;
 public class HistoryActivity extends AppCompatActivity {
 
     private List<HistoryItem> mList = new ArrayList<>();
+    private String test;
+    private goodDBdao gooddbdao;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +48,19 @@ public class HistoryActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
     private void initItem(){
+        gooddbdao = new goodDBdao(getApplicationContext());
+        List<good> goods = gooddbdao.findById(1);
+        good demo = goods.get(0);
+        test = demo.getImagepath();
+        Bitmap bm;
+        try{
+            BufferedInputStream bis = new BufferedInputStream(getAssets().open("kaixinguo.png"));
+             bm = BitmapFactory.decodeStream(bis);
+        }catch (Exception e){
+            e.printStackTrace();;
+        }
+
+
             HistoryItem apple = new HistoryItem("口口福开心果",R.drawable.goods,"坚果特产干果休闲食品","29.90","180g","2017-02-14","2018-02-14");
             mList.add(apple);
             HistoryItem banana = new HistoryItem("banana",R.drawable.banana_pic,"水果","5","500g","2017-06-16","2017-07-17");
