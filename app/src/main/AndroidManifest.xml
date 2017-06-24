@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.unicorn.easygo">
 
+    <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <!-- 允许程序打开网络套接字 -->
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- 允许程序设置内置sd卡的写权限 -->
@@ -12,15 +15,12 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <!-- 允许程序读写手机状态和身份 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <!-- 允许程序访问CellID或WiFi热点来获取粗略的位置 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-feature android:name="android.hardware.camera" />
-    <uses-feature android:name="android.hardware.camera.aultofo" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
 
 `
@@ -34,7 +34,7 @@
         <!-- 高德地图API key设置 -->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="18f83b3f91f8407d66eb17add7e8ea03" />
+            android:value="904e9c28f3c2f820add5a24b6fcef1e0" />
 
         <!-- android:windowSoftInputMode 设置键盘升起效果 -->
         <activity
@@ -75,6 +75,9 @@
         <activity android:name=".activity.OrderDetailActivity" />
         <activity android:name=".activity.DemagnetizeActivity" />
         <activity android:name=".activity.PayActivity"></activity>
+
+        <service android:name="com.amap.api.location.APSService" >
+        </service>
     </application>
 
 </manifest>
