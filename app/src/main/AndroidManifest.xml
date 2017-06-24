@@ -57,8 +57,7 @@
         <activity android:name=".activity.ScanShoppingCartActivity" />
         <activity
             android:name=".zxing.android.CaptureActivity"
-            android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar" />
+            android:screenOrientation="portrait" />
         <activity android:name=".activity.ResultActivity" />
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.NoTitleBar" />
