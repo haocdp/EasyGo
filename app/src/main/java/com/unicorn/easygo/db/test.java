@@ -1,12 +1,11 @@
 package com.unicorn.easygo.db;
 
-import java.util.Date;
-
 /**
- * Created by guojishan on 2017/6/18.
+ * Created by guojishan on 2017/6/24.
  */
 
-public class order {
+public class test {
+    private static final long serialVersionUID = 1L;
     private int orderId;
     private int goodId;//商品条码
     private int orderNumber;//订单编号

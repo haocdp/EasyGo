@@ -26,7 +26,7 @@ public class goodDBdao {
      */
 
     public void add(String goodName,double weight, double price,int productionDate,
-            int storage_life, String energy, String protein, String fat,String carbohydrate,String na){
+            int storage_life, String energy, String protein, String fat,String carbohydrate,String na,String imagepath){
         SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
         if (db.isOpen()) {
             ContentValues values = new ContentValues();
@@ -40,6 +40,7 @@ public class goodDBdao {
             values.put("fat", fat);
             values.put("carbohydrate", carbohydrate);
             values.put("na", na);
+            values.put("imagepath", imagepath);
 
             db.insert("good", null, values); // 组拼sql语句完成的添加的操作
 
@@ -63,7 +64,7 @@ public class goodDBdao {
      * 根据商品编号修改
      */
     public void update(int goodId,String goodName,double weight, double price,int productionDate,
-                       int storage_life, String energy, String protein, String fat,String carbohydrate,String na) {
+                       int storage_life, String energy, String protein, String fat,String carbohydrate,String na,String imagepath) {
         SQLiteDatabase db = dbOpenHelper.getWritableDatabase();
         if (db.isOpen()) {
             ContentValues values = new ContentValues();
@@ -78,6 +79,7 @@ public class goodDBdao {
             values.put("fat", fat);
             values.put("carbohydrate", carbohydrate);
             values.put("na", na);
+            values.put("imagepath",imagepath);
             db.update("good", values, "goodId=?", new String[] { String.valueOf(goodId) });
             db.close();
         }
@@ -106,6 +108,7 @@ public class goodDBdao {
                 String fat = cursor.getString(cursor.getColumnIndex("fat"));
                 String carbohydrate = cursor.getString(cursor.getColumnIndex("carbohydrate"));
                 String na = cursor.getString(cursor.getColumnIndex("na"));
+                String imagepath = cursor.getString(cursor.getColumnIndex("imagepath"));
 
                 good.setGoodName(goodName);
                 good.setWeight(weight);
@@ -117,7 +120,8 @@ public class goodDBdao {
                 good.setFat(fat);
                 good.setCarbohydrate(carbohydrate);
                 good.setNa(na);
-
+                good.setImagepath(imagepath);
+                goods.add(good);
 
             }
             cursor.close();

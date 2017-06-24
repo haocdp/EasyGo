@@ -39,11 +39,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         login.setOnClickListener(this);
     }
 
-    @Override
-    protected void onStart() {
-        // TODO Auto-generated method stub
-        super.onStart();
-    }
+//    @Override
+//    protected void onStart() {
+//        // TODO Auto-generated method stub
+//        super.onStart();
+//    }
 
     @Override
     public void onClick(View view) {

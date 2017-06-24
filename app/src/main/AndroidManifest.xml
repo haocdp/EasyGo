@@ -40,11 +40,11 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+            <!--</intent-filter>-->
         </activity>
         <activity android:name=".activity.MarketRecommendActivity" />
         <activity android:name=".activity.OrderActivity" />
@@ -55,6 +55,7 @@
         <activity android:name=".activity.PersonalInfoActivity" />
         <activity android:name=".activity.WalletActivity" />
         <activity android:name=".activity.ScanShoppingCartActivity" />
+        <activity android:name=".activity.CreateDataBase" />
         <activity
             android:name=".zxing.android.CaptureActivity"
             android:screenOrientation="portrait"
@@ -64,11 +65,11 @@
         android:theme="@android:style/Theme.NoTitleBar" />
         <activity android:name=".activity.ScanGoodsInfoActivity" />
         <activity android:name=".activity.LoginActivity">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".activity.RegisterActivity"></activity>
         <activity android:name=".activity.ConfirmOrderActivity"></activity>
