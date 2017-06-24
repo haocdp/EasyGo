@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -14,6 +15,8 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.BarcodeFormat;
@@ -24,6 +27,7 @@ import com.unicorn.easygo.R;
 import com.unicorn.easygo.activity.ResultActivity;
 import com.unicorn.easygo.activity.ScanGoodsInfoActivity;
 import com.unicorn.easygo.activity.ScanShoppingCartActivity;
+import com.unicorn.easygo.utils.FontUtil;
 import com.unicorn.easygo.zxing.camera.CameraManager;
 import com.unicorn.easygo.zxing.view.ViewfinderView;
 
@@ -54,6 +58,8 @@ public final class CaptureActivity extends Activity implements
     // 声音、震动控制
     private BeepManager beepManager;
 
+    private TextView toolbar_title;
+    private ImageView toolbar_back;
     private ImageButton imageButton_back;
 
     public ViewfinderView getViewfinderView() {
@@ -88,14 +94,26 @@ public final class CaptureActivity extends Activity implements
         inactivityTimer = new InactivityTimer(this);
         beepManager = new BeepManager(this);
 
-        imageButton_back = (ImageButton) findViewById(R.id.capture_imageview_back);
+        /*imageButton_back = (ImageButton) findViewById(R.id.capture_imageview_back);
         imageButton_back.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 finish();
             }
+        });*/
+        toolbar_back = (ImageView) findViewById(R.id.title_back);
+        toolbar_back.setImageResource(R.mipmap.title_back);
+        toolbar_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
         });
+        toolbar_title = (TextView) findViewById(R.id.title_text);
+        toolbar_title.setText("扫一扫");
+        FontUtil.setFont(toolbar_title, this.getAssets(), 0);
+
     }
 
     @Override

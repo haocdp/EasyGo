@@ -128,4 +128,6 @@
 
     <string name="haveAScan">扫一扫</string>
     <string name="goodsInfo">商品信息</string>
+
+    <string name="no_result">对不起，没有搜索到相关数据！</string>
 </resources>
