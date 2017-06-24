@@ -5,8 +5,10 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ToggleButton;
 
@@ -46,8 +48,13 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
                 view.setFocusableInTouchMode(true);
                 view.requestFocus();
                 //view.findFocus();
+                InputMethodManager inputMethodManager = (InputMethodManager) view.getContext()
+                        .getSystemService(Context.INPUT_METHOD_SERVICE);
+
+                inputMethodManager.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
             }
         });
+
 
         preOrderViewHolder.editText.setOnFocusChangeListener(new View.OnFocusChangeListener() {
             String beforeText;
@@ -63,6 +70,7 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
                     if(("".equals(beforeText) || beforeText == null) &&
                             (afterText != null && !"".equals(afterText))) {
                         orderItems.add(orderItems.size()-1 , afterText);
+
                     }
 
                     if(((!"".equals(beforeText)) && beforeText != null) &&

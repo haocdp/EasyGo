@@ -59,7 +59,7 @@
         <activity
             android:name=".zxing.android.CaptureActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.NoTitleBar" />
         <activity android:name=".activity.ResultActivity" />
         android:screenOrientation="portrait"
         android:theme="@android:style/Theme.NoTitleBar" />
@@ -71,8 +71,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.RegisterActivity"></activity>
-        <activity android:name=".activity.ConfirmOrderActivity"></activity>
+        <activity android:name=".activity.RegisterActivity" />
+        <activity android:name=".activity.ConfirmOrderActivity" />
+        <activity android:name=".activity.OrderDetailActivity" />
+        <activity android:name=".activity.DemagnetizeActivity" />
+        <activity android:name=".activity.PayActivity"></activity>
     </application>
 
 </manifest>
