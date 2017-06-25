@@ -40,12 +40,15 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
         View v = layoutInflater.inflate(R.layout.order_item, parent, false);
         final PreOrderViewHolder preOrderViewHolder = new PreOrderViewHolder(v);
 
+
+        //preOrderViewHolder.editText.setFocusable(true);
+        //preOrderViewHolder.editText.setFocusableInTouchMode(true);
         preOrderViewHolder.editText.setOnClickListener(new View.OnClickListener(){
 
             @Override
             public void onClick(View view) {
-                view.setFocusable(true);
-                view.setFocusableInTouchMode(true);
+                //view.setFocusable(true);
+                //view.setFocusableInTouchMode(true);
                 view.requestFocus();
                 //view.findFocus();
                 InputMethodManager inputMethodManager = (InputMethodManager) view.getContext()
@@ -102,7 +105,7 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
         String item = orderItems.get(position);
         holder.editText.setText(item);
         FontUtil.setFont(holder.editText, context.getAssets(), 0);
-        holder.editText.setFocusableInTouchMode(false);
+        //holder.editText.setFocusableInTouchMode(false);
         holder.toggleButton.setChecked(false);
     }
 
@@ -118,7 +121,11 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
         public PreOrderViewHolder(View itemView) {
             super(itemView);
             editText = (EditText) itemView.findViewById(R.id.orderItem);
+            editText.setFocusable(true);
+            editText.setFocusableInTouchMode(true);
             toggleButton = (ToggleButton) itemView.findViewById(R.id.orderItem_toggleButton);
+            //toggleButton.setFocusableInTouchMode(true);
+            //toggleButton.setFocusable(true);
         }
     }
 

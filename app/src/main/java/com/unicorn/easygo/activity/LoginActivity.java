@@ -31,12 +31,22 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
         tv_register = (TextView) findViewById(R.id.tvRegister);
         loginName = (EditText) this.findViewById(R.id.edtTxtUsername);
+        loginName.setFocusable(true); //自动获得焦点
+        loginName.setFocusableInTouchMode(true); //触摸模式下自动获得焦点
+
         loginPwd = (EditText) this.findViewById(R.id.edtTxtPassword);
+        loginName.setFocusable(true); //自动获得焦点
+        loginName.setFocusableInTouchMode(true); //触摸模式下自动获得焦点
         login = (Button) this.findViewById(R.id.btnLogin);
         tv_register.getPaint().setFlags(Paint.UNDERLINE_TEXT_FLAG);
 
         tv_register.setOnClickListener(this);
         login.setOnClickListener(this);
+
+
+        loginName.setOnFocusChangeListener(this);
+        loginPwd.setOnFocusChangeListener(this);
+        //loginName.requestFocus();
     }
 
 //    @Override

@@ -2,6 +2,7 @@ package com.unicorn.easygo.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -25,10 +26,18 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
         setContentView(R.layout.activity_register);
 
         userName = (EditText)findViewById(R.id.edtTxtUsernameInRegister);
+        userName.setFocusable(true); //自动获得焦点
+        userName.setFocusableInTouchMode(true); //触摸模式下自动获得焦点
         passWord = (EditText)findViewById(R.id.edtTxtPasswordInRegister);
+        passWord.setFocusable(true); //自动获得焦点
+        passWord.setFocusableInTouchMode(true); //触摸模式下自动获得焦点
         btnRegister = (Button)findViewById(R.id.btnRegister);
 
         btnRegister.setOnClickListener(this);
+
+        userName.setOnFocusChangeListener(this);
+        passWord.setOnFocusChangeListener(this);
+        userName.requestFocus();
     }
     public void onClick(View v){
         switch (v.getId()) {

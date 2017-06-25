@@ -11,15 +11,15 @@
         android:id="@+id/ivLogin"
         android:layout_width="86dp"
         android:layout_height="86dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="96dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:srcCompat="@mipmap/logo" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -51,29 +51,30 @@
         <EditText
             android:id="@+id/edtTxtUsername"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="@null"
             android:ems="10"
             android:hint="用户名/手机号"
-            android:inputType="textPersonName"
+            android:inputType="text"
+            android:maxLines="1"
             app:layout_constraintTop_toBottomOf="@+id/ivLoginInRegister"
             tools:layout_editor_absoluteX="73dp" />
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="260dp"
         android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="@mipmap/password_background"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        android:id="@+id/linearLayout3"
-        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <ImageView
             android:id="@+id/ivPassword"
@@ -87,13 +88,15 @@
         <EditText
             android:id="@+id/edtTxtPassword"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="@null"
             android:ems="10"
             android:hint="密码"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:password="false" />
 
     </LinearLayout>
 
@@ -101,39 +104,39 @@
         android:id="@+id/btnLogin"
         android:layout_width="260dp"
         android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="18dp"
         android:background="@mipmap/login_background"
         android:text="登陆"
         android:textColor="@color/status_text"
         android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
-        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
 
     <TextView
         android:id="@+id/tvForgetPassword"
         android:layout_width="wrap_content"
         android:layout_height="17dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="26dp"
         android:text="忘记密码"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        android:layout_marginLeft="8dp"
+        app:layout_constraintHorizontal_bias="0.25"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toLeftOf="@+id/tvRegister"
-        android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.25" />
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
     <TextView
         android:id="@+id/tvRegister"
         android:layout_width="wrap_content"
-        android:layout_height="17dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="50dp"
         android:layout_marginTop="26dp"
         android:autoLink="web"
         android:text="创建新用户"
-        app:layout_constraintTop_toBottomOf="@+id/btnLogin"
-        android:layout_marginRight="50dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
 </android.support.constraint.ConstraintLayout>

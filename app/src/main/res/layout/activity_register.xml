@@ -5,21 +5,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/mainColor"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
     tools:context="com.unicorn.easygo.activity.LoginActivity">
 
     <ImageView
         android:id="@+id/ivLoginInRegister"
         android:layout_width="86dp"
         android:layout_height="86dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="96dp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/logo"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp" />
+        app:srcCompat="@mipmap/logo" />
 
     <LinearLayout
         android:id="@+id/linearLayout2"
@@ -51,29 +53,30 @@
         <EditText
             android:id="@+id/edtTxtUsernameInRegister"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="@null"
             android:ems="10"
             android:hint="用户名/手机号"
-            android:inputType="textPersonName"
+            android:inputType="text"
+            android:maxLines="1"
             app:layout_constraintTop_toBottomOf="@+id/ivLoginInRegister"
-            tools:layout_editor_absoluteX="73dp" />
+            tools:layout_editor_absoluteX="73dp"></EditText>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="260dp"
         android:layout_height="50dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
         android:background="@mipmap/password_background"
         android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
-        android:id="@+id/linearLayout3"
-        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent">
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <ImageView
             android:id="@+id/ivPasswordInRegister"
@@ -87,13 +90,16 @@
         <EditText
             android:id="@+id/edtTxtPasswordInRegister"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_vertical"
             android:layout_weight="1"
             android:background="@null"
             android:ems="10"
             android:hint="密码"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:maxLines="1">
+
+        </EditText>
 
     </LinearLayout>
 
@@ -105,6 +111,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="18dp"
         android:background="@mipmap/login_background"
+        android:focusableInTouchMode="true"
         android:text="注册"
         android:textColor="@color/status_text"
         android:textSize="18sp"

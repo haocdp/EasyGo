@@ -12,6 +12,7 @@
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="25dp"
         android:background="@drawable/selector_toggle_btn"
+        android:checked="false"
         android:text="ToggleButton"
         android:textIsSelectable="false"
         android:textOff=" "
@@ -19,15 +20,16 @@
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
 
         <EditText
             android:id="@+id/orderItem"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="16dp"
             android:layout_weight="4"
             android:background="@null"
             android:ems="10"
@@ -56,7 +58,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="25dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="12dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/orderItem"

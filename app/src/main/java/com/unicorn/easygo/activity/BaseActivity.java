@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity implements View.OnFocusChangeListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,8 @@ public class BaseActivity extends AppCompatActivity {
 
     @Override
     public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getAction() == KeyEvent.ACTION_DOWN ) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN &&
+                event.getKeyCode() == KeyEvent.KEYCODE_ENTER) {
             View v = getCurrentFocus();
             InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 
@@ -28,8 +29,8 @@ public class BaseActivity extends AppCompatActivity {
                 if (inputMethodManager.isActive()) {
                     inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
                 }
-                v.setFocusable(false);
-                v.setFocusableInTouchMode(false);
+                v.clearFocus();
+                //v.setFocusableInTouchMode(false);
                 return super.dispatchKeyEvent(event);
             }
         }
@@ -38,7 +39,8 @@ public class BaseActivity extends AppCompatActivity {
             return true;
         }
 
-        return onKeyUp(KeyEvent.KEYCODE_BACK, event);
+        //return onKeyUp(KeyEvent.KEYCODE_BACK, event);
+        return super.dispatchKeyEvent(event);
     }
 
     /**
@@ -84,13 +86,30 @@ public class BaseActivity extends AppCompatActivity {
                 return false;
             } else {
                 //使EditText触发一次失去焦点事件
-                v.setFocusable(false);
+                //v.setFocusable(false);
 //                v.setFocusable(true); //这里不需要是因为下面一句代码会同时实现这个功能
-                v.setFocusableInTouchMode(false);
+                //v.setFocusableInTouchMode(true);
                 //v.requestFocus();
+                v.clearFocus();
                 return true;
             }
         }
         return false;
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (v instanceof EditText) {
+            if (hasFocus) {
+                //v.requestFocus();
+                InputMethodManager inputMethodManager =
+                        (InputMethodManager) v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (!inputMethodManager.isActive())
+                    inputMethodManager.toggleSoftInput(0, InputMethodManager.SHOW_FORCED);
+                else
+                    inputMethodManager.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                //inputMethodManager.showSoftInput(v, InputMethodManager.SHOW_FORCED);
+            }
+        }
     }
 }
