@@ -39,6 +39,7 @@ import com.unicorn.easygo.db.scanRecordDBdao;
 import com.unicorn.easygo.db.shoppingCartDBdao;
 import com.unicorn.easygo.db.testDBdao;
 import com.unicorn.easygo.db.userDBdao;
+import com.unicorn.easygo.entity.UserProfile;
 import com.unicorn.easygo.utils.FontUtil;
 import com.unicorn.easygo.zxing.android.CaptureActivity;
 
@@ -104,11 +105,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private int bmpWidth;// 移动条图片的长度
     private int one = 0; //移动条滑动一页的距离
     private MyDBOpenHelper dbHelper;
+    private EGOApplication eAPP;
+    private UserProfile userProfile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
 //数据库建立
 
@@ -156,6 +160,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         intent = this.getIntent();
         name = intent.getStringExtra("name");// 接收登录界面的数据
         Log.i("MainActivity",name);
+        //设置共享变量
+        eAPP = (EGOApplication)getApplication();
+        userProfile = new UserProfile();
+        userProfile.setUsername(name);
+        eAPP.setUserProfile(userProfile);
+        String publicname = userProfile.getUsername();
+        Log.i("publicname:",publicname);
         if (name == null) {
             intent = new Intent(this, LoginActivity.class);
             startActivity(intent);

@@ -27,7 +27,7 @@ public class EGOApplication extends Application {
 
     }
 
-    private UserProfile getUserProfile() {
+    public UserProfile getUserProfile() {
 
         return userProfile;
     }

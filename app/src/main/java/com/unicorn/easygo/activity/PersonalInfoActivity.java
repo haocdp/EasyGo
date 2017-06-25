@@ -7,7 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.unicorn.easygo.EGOApplication;
 import com.unicorn.easygo.R;
+import com.unicorn.easygo.entity.UserProfile;
 import com.unicorn.easygo.utils.FontUtil;
 
 /**
@@ -24,6 +26,7 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
     private TextView tv6;
     private TextView tv7;
     private TextView tv8;
+    private TextView user;
     private Button quit;
 
 
@@ -53,10 +56,18 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
         tv6 = (TextView)findViewById(R.id.tv6);
         tv7 = (TextView)findViewById(R.id.tv7);
         tv8 = (TextView)findViewById(R.id.tv8);
+        user = (TextView)findViewById(R.id.user);
         quit = (Button)findViewById(R.id.quit);
 
+        EGOApplication eAPP = (EGOApplication)getApplication();
+        UserProfile userProfile = new UserProfile();
+        userProfile = eAPP.getUserProfile();
+        String username = userProfile.getUsername();
+
         title.setText("个人信息");
+        user.setText(username);
         quit.setOnClickListener(this);
+
     }
     public void onClick(View v){
         switch (v.getId()) {

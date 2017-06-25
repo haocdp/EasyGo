@@ -3,6 +3,7 @@ package com.unicorn.easygo.activity;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -49,11 +50,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         loginName.setOnFocusChangeListener(this);
         loginPwd.setOnFocusChangeListener(this);
         //loginName.requestFocus();
-        //设置共享变量
-        EGOApplication eAPP = (EGOApplication)getApplication();
-        UserProfile userProfile = new UserProfile();
-        userProfile.setUsername(loginName.getText().toString());
-        eAPP.setUserProfile(userProfile);
+
     }
 
 //    @Override
