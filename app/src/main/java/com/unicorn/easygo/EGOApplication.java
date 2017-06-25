@@ -35,8 +35,4 @@ public class EGOApplication extends Application {
 
         return userProfile;
     }
-
-    public void setUserProfile(UserProfile userProfile){
-        this.userProfile = userProfile;
-    }
 }
