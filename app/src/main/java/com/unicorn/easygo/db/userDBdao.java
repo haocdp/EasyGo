@@ -56,8 +56,8 @@ public class userDBdao {
         }
     }
     /**
-     * 数据库的查询操作 判断有无该数据
-     * 查询数据库的所有图片
+     * 数据库的查询操作
+     * 根据ID查询数据
      */
     public List<user> findById(int id) {
         List<user> users = null;
@@ -78,6 +78,32 @@ public class userDBdao {
         }
         return users;
     }
+    /**
+     * 数据库的查询操作
+     * 根据用户名查询
+     */
+    public List<user> findByName(String username) {
+        List<user> users = null;
+        SQLiteDatabase db = dbOpenHelper.getReadableDatabase();
+        if (db.isOpen()) {
+            Cursor cursor = db.query("user", null, "username=?",new String[] { username }, null, null, null);
+            if (cursor.moveToFirst()) {
+                users = new ArrayList<user>();//创建列表
+                user user = new user();
+
+                int userid = cursor.getInt(cursor.getColumnIndex("userid"));
+                String password = cursor.getString(cursor.getColumnIndex("password"));
+
+                user.setUserid(userid);
+                user.setPassword(password);
+                users.add(user);//插入数据到列表中
+            }
+            cursor.close();
+            db.close();
+        }
+        return users;
+    }
+
     /**
      * 数据库的查询操作 判断有无该数据
      * 判断用户是否存在

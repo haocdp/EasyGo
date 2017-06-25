@@ -30,8 +30,8 @@
 
         <ToggleButton
             android:id="@+id/pay_toggleButton_wechat"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
+            android:layout_width="88dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="31dp"
             android:layout_marginRight="31dp"
             android:layout_marginTop="23dp"
@@ -127,8 +127,8 @@
 
         <ToggleButton
             android:id="@+id/toggleButton_alipay"
-            android:layout_width="13dp"
-            android:layout_height="13dp"
+            android:layout_width="88dp"
+            android:layout_height="48dp"
             android:layout_marginEnd="31dp"
             android:layout_marginRight="31dp"
             android:layout_marginTop="23dp"
@@ -178,7 +178,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="43dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -193,7 +193,8 @@
             android:text="￥"
             android:textColor="@color/adornColor"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="16dp" />
 
         <TextView
             android:id="@+id/tv_money_num"
@@ -204,7 +205,8 @@
             android:text="51.00"
             android:textColor="@color/adornColor"
             app:layout_constraintLeft_toRightOf="@+id/tv_money_symbol"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="3dp" />
 
         <TextView
             android:id="@+id/tv_selected_pay_way"
@@ -214,7 +216,8 @@
             android:layout_marginTop="14dp"
             android:text="支付宝支付"
             app:layout_constraintLeft_toRightOf="@+id/tv_money_num"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="23dp" />
 
         <TextView
             android:id="@+id/tv_go_pay"
