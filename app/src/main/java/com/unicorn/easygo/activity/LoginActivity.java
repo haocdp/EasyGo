@@ -10,10 +10,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.maps.model.Text;
+import com.unicorn.easygo.EGOApplication;
 import com.unicorn.easygo.MainActivity;
 import com.unicorn.easygo.R;
 import com.unicorn.easygo.db.user;
 import com.unicorn.easygo.db.userDBdao;
+import com.unicorn.easygo.entity.UserProfile;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
@@ -47,6 +49,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         loginName.setOnFocusChangeListener(this);
         loginPwd.setOnFocusChangeListener(this);
         //loginName.requestFocus();
+        //设置共享变量
+        EGOApplication eAPP = (EGOApplication)getApplication();
+        UserProfile userProfile = new UserProfile();
+        userProfile.setUsername(loginName.getText().toString());
+        eAPP.setUserProfile(userProfile);
     }
 
 //    @Override

@@ -191,6 +191,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
                         break;
                     case R.id.nav_wallet:
                         Intent intent_wallet = new Intent(MainActivity.this,WalletActivity.class);
+                        intent_wallet.putExtra("login_name",name);
                         startActivity(intent_wallet);
                         break;
                     case R.id.nav_history:

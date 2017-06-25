@@ -97,10 +97,12 @@ public class accountDBdao {
                 String vip = cursor.getString(cursor.getColumnIndex("vip"));
                 double money= cursor.getDouble(cursor.getColumnIndex("money"));
                 int id = cursor.getInt(cursor.getColumnIndex("id"));
+
                 account.setMoney(money);
                 account.setSex(sex);
                 account.setId(id);
                 account.setVip(vip);
+
                 accounts.add(account);//插入数据到列表中
             }
             cursor.close();

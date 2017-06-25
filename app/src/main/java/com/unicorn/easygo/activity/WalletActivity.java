@@ -3,8 +3,10 @@ package com.unicorn.easygo.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.TextView;
 
+import com.unicorn.easygo.MainActivity;
 import com.unicorn.easygo.R;
 import com.unicorn.easygo.db.account;
 import com.unicorn.easygo.db.accountDBdao;
@@ -42,16 +44,19 @@ public class WalletActivity extends AppCompatActivity {
         FontUtil.setFont(rmb,this.getAssets(),0);
 
         money = (TextView)findViewById(R.id.money);
-        money.setText("1000");
         accountdao = new accountDBdao(getApplicationContext());
         userdao = new userDBdao(getApplicationContext());
         intent = this.getIntent();
-        name = intent.getStringExtra("name");// 接收登录界面的数据
-
+        name = intent.getStringExtra("login_name");// 接收登录界面的数据
+        Log.i("test1:",String.valueOf(name));
         List<user> users = userdao.findByName(name);
         user demo = users.get(0);
         int userid = demo.getUserid();
-        //List<account> accounts = accountdao.find(userid);
+        Log.i("test2:",String.valueOf(userid));
+        List<account> accounts = accountdao.findByuserId(userid);
+        account demo1 = accounts.get(0);
+        double qian = demo1.getMoney();
+        money.setText(String.valueOf(qian));
 
 
 

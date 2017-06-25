@@ -1,6 +1,7 @@
 package com.unicorn.easygo;
 
 import android.app.Application;
+import android.content.Intent;
 
 import com.unicorn.easygo.entity.UserProfile;
 
@@ -23,9 +24,15 @@ public class EGOApplication extends Application {
         super.onCreate();
         egoApplication = this;
         userProfile = new UserProfile();
+
     }
 
     private UserProfile getUserProfile() {
+
         return userProfile;
+    }
+
+    public void setUserProfile(UserProfile userProfile){
+        this.userProfile = userProfile;
     }
 }
