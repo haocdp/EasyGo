@@ -13,8 +13,12 @@ public class EGOApplication extends Application {
 
     private static EGOApplication egoApplication;
 
-    private static EGOApplication getInstance() {
+    public static EGOApplication getInstance() {
         return egoApplication;
+    }
+
+    private EGOApplication() {
+        super();
     }
 
     private UserProfile userProfile;
