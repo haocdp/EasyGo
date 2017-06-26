@@ -105,7 +105,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private int bmpWidth;// 移动条图片的长度
     private int one = 0; //移动条滑动一页的距离
     private MyDBOpenHelper dbHelper;
-    private EGOApplication eAPP;
+    //private EGOApplication eAPP;
     private UserProfile userProfile;
 
     @Override
@@ -158,13 +158,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         initFragment();
         setFonts();
         intent = this.getIntent();
-        name = intent.getStringExtra("name");// 接收登录界面的数据
+        //name = intent.getStringExtra("name");// 接收登录界面的数据
+        name = EGOApplication.getInstance().getUserProfile().getUsername();
         Log.i("MainActivity",name);
         //设置共享变量
-        eAPP = (EGOApplication)getApplication();
+        //eAPP = (EGOApplication)getApplication();
         userProfile = new UserProfile();
         userProfile.setUsername(name);
-        eAPP.setUserProfile(userProfile);
+        //eAPP.setUserProfile(userProfile);
         String publicname = userProfile.getUsername();
         Log.i("publicname:",publicname);
         if (name == null) {

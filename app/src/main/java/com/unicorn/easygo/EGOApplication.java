@@ -17,9 +17,9 @@ public class EGOApplication extends Application {
         return egoApplication;
     }
 
-    private EGOApplication() {
+    /*public EGOApplication() {
         super();
-    }
+    }*/
 
     private UserProfile userProfile;
 

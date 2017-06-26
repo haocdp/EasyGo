@@ -59,10 +59,11 @@ public class PersonalInfoActivity extends AppCompatActivity implements View.OnCl
         user = (TextView)findViewById(R.id.user);
         quit = (Button)findViewById(R.id.quit);
 
-        EGOApplication eAPP = (EGOApplication)getApplication();
-        UserProfile userProfile = new UserProfile();
-        userProfile = eAPP.getUserProfile();
-        String username = userProfile.getUsername();
+        //EGOApplication eAPP = (EGOApplication)getApplication();
+        //UserProfile userProfile = new UserProfile();
+        //userProfile = eAPP.getUserProfile();
+        //String username = userProfile.getUsername();
+        String username = EGOApplication.getInstance().getUserProfile().getUsername();
 
         title.setText("个人信息");
         user.setText(username);

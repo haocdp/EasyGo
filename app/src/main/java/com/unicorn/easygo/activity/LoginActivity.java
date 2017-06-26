@@ -51,6 +51,7 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
         loginPwd.setOnFocusChangeListener(this);
         //loginName.requestFocus();
 
+
     }
 
 //    @Override
@@ -83,7 +84,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                     result = userdbdao.findLogin(loginName.getText().toString(),loginPwd.getText().toString());
                     if(result){//若账号存在，判断密码是否正确
                         Intent login_intent = new Intent(this,MainActivity.class);
-                        login_intent.putExtra("name", loginName.getText	().toString().trim());
+                        //login_intent.putExtra("name", loginName.getText	().toString().trim());
+                        EGOApplication.getInstance().getUserProfile().setUsername(
+                                loginName.getText().toString().trim());
                         startActivity(login_intent);
 
                     }else{

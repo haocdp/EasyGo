@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.unicorn.easygo.R;
 import com.unicorn.easygo.entity.myOrderListItem;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -47,4 +48,12 @@ public class myOrderListAdapter extends ArrayAdapter<String> {
         return view;
 
     }
+
+//    public void add(int position,myOrderListItem data){
+//        if (mData == null) {
+//            mData = new LinkedList<>();
+//        }
+//        mData.add(position,data);
+//        notifyDataSetChanged();
+//    }
 }
