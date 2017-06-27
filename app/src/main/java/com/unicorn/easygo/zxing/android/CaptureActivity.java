@@ -208,9 +208,17 @@ public final class CaptureActivity extends Activity implements
 
             Toast.makeText(this, "扫描成功", Toast.LENGTH_SHORT).show();
 
-            Intent intent = new Intent(this, ScanGoodsInfoActivity.class);
-            intent.putExtra("codedContent", rawResult.getText());
-            startActivity(intent);
+            if (rawResult.getText().startsWith("sc")) {
+                Intent intent = new Intent(this, ScanShoppingCartActivity.class);
+                intent.putExtra("shoppingCartNo", rawResult.getText());
+                startActivity(intent);
+                finish();
+            } else {
+
+                Intent intent = new Intent(this, ScanGoodsInfoActivity.class);
+                intent.putExtra("goodsNo", rawResult.getText());
+                startActivity(intent);
+            }
         }
 
     }

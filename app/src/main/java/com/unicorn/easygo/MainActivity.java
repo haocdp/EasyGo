@@ -20,9 +20,11 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.amap.api.maps.model.Text;
 import com.unicorn.easygo.activity.CouponActivity;
 import com.unicorn.easygo.activity.HistoryActivity;
 import com.unicorn.easygo.activity.BaseActivity;
@@ -75,6 +77,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private userDBdao userdbdao;
     private testDBdao testdbdao;
 
+    private LinearLayout ll_shoppingCart;
+    private TextView tv_shoppingCart_text;
+    private TextView tv_shoppingCart_no;
 
     /**
      * fragment管理
@@ -168,7 +173,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         testdbdao.add(10,761267013,20170403,1);
         testdbdao.add(11,745723896,20170401,1);
 
-        Toast.makeText(getApplicationContext(), "数据添加成 功 ！",
+        Toast.makeText(getApplicationContext(), "数据添加成功 ！",
                 Toast.LENGTH_SHORT).show();
 
         initViews();
@@ -192,6 +197,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         } else {
             //对用户名进行赋值
             username.setText(name);
+        }
+
+        if (EGOApplication.getInstance().hasBundCart()) {
+            ll_shoppingCart.setVisibility(View.VISIBLE);
+            tv_shoppingCart_no.setText(EGOApplication.getInstance().getShoppingCartNo());
+        } else {
+            ll_shoppingCart.setVisibility(View.GONE);
+            tv_shoppingCart_no.setText(EGOApplication.getInstance().getShoppingCartNo());
         }
     }
 
@@ -283,6 +296,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         //userimage.setOnClickListener(this);
 
 
+        ll_shoppingCart = (LinearLayout) findViewById(R.id.ll_shoppingCart);
+        tv_shoppingCart_text = (TextView) findViewById(R.id.tvShoppingCartNoPre);
+        tv_shoppingCart_no = (TextView) findViewById(R.id.tvShoppingCartNo);
 
         //viewPager.addOnPageChangeListener(this);
     }
@@ -310,6 +326,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         FontUtil.setFont(appName, this.getAssets(), 0);
         FontUtil.setFont(tv_one, this.getAssets(), 0);
         FontUtil.setFont(tv_two, this.getAssets(), 0);
+        FontUtil.setFont(tv_shoppingCart_text, this.getAssets(), 0);
+        FontUtil.setFont(tv_shoppingCart_no, this.getAssets(), 0);
     }
 
     public void onClick(View v) {
@@ -397,4 +415,18 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
             }
         }
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        if (EGOApplication.getInstance().hasBundCart()) {
+            ll_shoppingCart.setVisibility(View.VISIBLE);
+            tv_shoppingCart_no.setText(EGOApplication.getInstance().getShoppingCartNo());
+        } else {
+            ll_shoppingCart.setVisibility(View.GONE);
+            tv_shoppingCart_no.setText(EGOApplication.getInstance().getShoppingCartNo());
+        }
+    }
+
+
 }

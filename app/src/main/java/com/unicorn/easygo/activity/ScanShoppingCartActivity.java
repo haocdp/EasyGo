@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.unicorn.easygo.EGOApplication;
 import com.unicorn.easygo.R;
 import com.unicorn.easygo.utils.FontUtil;
 
@@ -27,8 +28,10 @@ public class ScanShoppingCartActivity extends AppCompatActivity {
         textView2 = (TextView) findViewById(R.id.textView2);
 
         Intent intent = getIntent();
-        shoppingCartNo.setText(intent.getStringExtra("codedContent"));
-
+        String scNo = intent.getStringExtra("shoppingCartNo").split("-")[1];
+        shoppingCartNo.setText(scNo);
+        EGOApplication.getInstance().setHasBundCart(true);
+        EGOApplication.getInstance().setShoppingCartNo(scNo);
         title.setText(getString(R.string.haveAScan));
 
         setFonts();

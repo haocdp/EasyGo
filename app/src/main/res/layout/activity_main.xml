@@ -83,6 +83,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ll_shoppingCart"
                     android:layout_width="wrap_content"
                     android:layout_height="13dp"
                     android:layout_gravity="center_horizontal"

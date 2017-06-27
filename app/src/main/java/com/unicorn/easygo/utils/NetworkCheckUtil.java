@@ -3,6 +3,7 @@ package com.unicorn.easygo.utils;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 
 /**
  * Created by haoc_dp on 2017/6/24.
@@ -22,12 +23,11 @@ public class NetworkCheckUtil {
             NetworkInfo info = connectivity.getActiveNetworkInfo();
             if (info != null && info.isConnected())
             {
+
                 // 当前网络是连接的
-                if (info.getState() == NetworkInfo.State.CONNECTED)
-                {
-                    // 当前所连接的网络可用
-                    return true;
-                }
+                //Log.i("networkCheck", "isNetworkAvailable: " + (info.getState() == NetworkInfo.State.CONNECTED));
+                //return info.getState() == NetworkInfo.State.CONNECTED;
+                return info.isAvailable();
             }
         }
         return false;

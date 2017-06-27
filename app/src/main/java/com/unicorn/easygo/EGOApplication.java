@@ -22,17 +22,35 @@ public class EGOApplication extends Application {
     }*/
 
     private UserProfile userProfile;
+    private boolean hasBundCart;
+    private String shoppingCartNo;
 
     @Override
     public void onCreate() {
         super.onCreate();
         egoApplication = this;
         userProfile = new UserProfile();
-
+        hasBundCart = false;
     }
 
     public UserProfile getUserProfile() {
 
         return userProfile;
+    }
+
+    public boolean hasBundCart() {
+        return hasBundCart;
+    }
+
+    public void setHasBundCart(boolean hasBundCart) {
+        this.hasBundCart = hasBundCart;
+    }
+
+    public String getShoppingCartNo() {
+        return shoppingCartNo;
+    }
+
+    public void setShoppingCartNo(String shoppingCartNo) {
+        this.shoppingCartNo = shoppingCartNo;
     }
 }
