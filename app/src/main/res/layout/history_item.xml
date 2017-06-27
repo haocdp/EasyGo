@@ -29,6 +29,7 @@
         android:layout_width="190dp"
         android:layout_height="2dp"
         android:src="@drawable/history_hx"
+        android:layout_marginLeft="20dp"
         />
     <LinearLayout
         android:orientation="vertical"

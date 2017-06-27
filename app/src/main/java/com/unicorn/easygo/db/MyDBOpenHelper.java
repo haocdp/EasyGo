@@ -19,7 +19,7 @@ public class MyDBOpenHelper extends SQLiteOpenHelper {
     public static final String CREATE_SCAN_RECORD="create table if not exists scanRecord (scanId INTEGER primary key autoincrement,goodId INTEGER,userId INTEGER, scanDate INTEGER)";
     public static final String CREATE_SHOPPINGCART="create table if not exists shoppingCart (id INTEGER primary key autoincrement,cartNumber INTEGER)";
     //public static final String CREATE_ORDER="create table if not exists order (orderId INTEGER primary key autoincrement,goodId INTEGER,orderNumber INTEGER,dealDate INTEGER)";
-    public static final String CREATE_TEST="create table if not exists test (orderId INTEGER primary key autoincrement, goodId INTEGER ,orderNumber INTEGER,dealDate INTEGER)";
+    public static final String CREATE_TEST="create table if not exists test (orderId INTEGER primary key autoincrement, goodId INTEGER ,orderNumber INTEGER,dealDate INTEGER,userId INTEGER)";
     public MyDBOpenHelper(Context context) {
         super(context, "Easygo.db", null, 1);
         mContext = context;

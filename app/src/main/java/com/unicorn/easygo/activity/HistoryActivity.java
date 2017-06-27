@@ -57,8 +57,10 @@ public class HistoryActivity extends AppCompatActivity {
             BufferedInputStream bis = new BufferedInputStream(getAssets().open("kaixinguo.png"));
              bm = BitmapFactory.decodeStream(bis);
         }catch (Exception e){
-            e.printStackTrace();;
+            e.printStackTrace();
         }
+
+
 
 
             HistoryItem apple = new HistoryItem("口口福开心果",R.drawable.goods,"坚果特产干果休闲食品","29.90","180g","2017-02-14","2018-02-14");

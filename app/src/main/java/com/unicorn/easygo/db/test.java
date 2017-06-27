@@ -9,6 +9,7 @@ public class test {
     private int orderId;
     private int goodId;//商品条码
     private int orderNumber;//订单编号
+    private int userId;//账户
     private int dealDate;//成交时间
 
     public int getOrderId() {
@@ -41,5 +42,13 @@ public class test {
 
     public void setDealDate(int dealDate) {
         this.dealDate = dealDate;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
+
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 }
