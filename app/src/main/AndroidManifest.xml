@@ -19,10 +19,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+
     <uses-feature android:name="android.hardware.camera" />
-
-
-`
+    `
     <application
         android:name=".EGOApplication"
         android:allowBackup="true"
@@ -40,11 +39,13 @@
         <activity
             android:name=".MainActivity"
             android:windowSoftInputMode="adjustPan">
-            <!--<intent-filter>-->
-                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
-            <!--</intent-filter>-->
+            <!-- <intent-filter> -->
+            <!-- <action android:name="android.intent.action.MAIN" /> -->
+
+
+            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
+            <!-- </intent-filter> -->
         </activity>
         <activity android:name=".activity.MarketRecommendActivity" />
         <activity android:name=".activity.OrderActivity" />
@@ -74,10 +75,11 @@
         <activity android:name=".activity.ConfirmOrderActivity" />
         <activity android:name=".activity.OrderDetailActivity" />
         <activity android:name=".activity.DemagnetizeActivity" />
-        <activity android:name=".activity.PayActivity"></activity>
+        <activity android:name=".activity.PayActivity" />
 
-        <service android:name="com.amap.api.location.APSService" >
-        </service>
+        <service android:name="com.amap.api.location.APSService"></service>
+
+        <activity android:name=".activity.MapGoodsActivity"></activity>
     </application>
 
 </manifest>

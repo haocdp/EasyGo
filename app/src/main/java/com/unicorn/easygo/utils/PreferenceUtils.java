@@ -14,6 +14,9 @@ public class PreferenceUtils {
 
     public final static String PRE_ORDER_ITEMS_KEY = "preOrderItems";
 
+    public final static String USERNAME = "username";
+    public final static String PASSWORD = "password";
+
 
     public static String getPrefString(Context context, String key,
                                        final String defaultValue) {

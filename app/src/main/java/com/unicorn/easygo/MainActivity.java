@@ -20,11 +20,13 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.maps.model.Text;
+import com.unicorn.easygo.activity.ConfirmOrderActivity;
 import com.unicorn.easygo.activity.CouponActivity;
 import com.unicorn.easygo.activity.HistoryActivity;
 import com.unicorn.easygo.activity.BaseActivity;
@@ -73,6 +75,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private TextView tv_shoppingCart_text;
     private TextView tv_shoppingCart_no;
 
+    private TextView tv_market_name;
+
     /**
      * fragment管理
      */
@@ -89,6 +93,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
     private DrawerLayout mDrawerLayout;
     //扫一扫
     private ImageButton scanButton;
+    private ImageView iv_shoppingCart;
     //个人信息编辑按钮
     private Button edit;
     //用户头像
@@ -120,12 +125,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         Log.i("MainActivity",name);
         //设置共享变量
         //eAPP = (EGOApplication)getApplication();
-        userProfile = new UserProfile();
-        userProfile.setUsername(name);
+        //userProfile = new UserProfile();
+        //userProfile.setUsername(name);
         //eAPP.setUserProfile(userProfile);
-        String publicname = userProfile.getUsername();
-        Log.i("publicname:",publicname);
-        if (name == null) {
+        //String publicname = userProfile.getUsername();
+        Log.i("publicname:",name);
+        if (name == null || "".equals(name)) {
             intent = new Intent(this, LoginActivity.class);
             startActivity(intent);
             finish();
@@ -134,6 +139,9 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
             username.setText(name);
         }
 
+        /**
+         * 必须扫描购物车后才显示购物车编号
+         */
         if (EGOApplication.getInstance().hasBundCart()) {
             ll_shoppingCart.setVisibility(View.VISIBLE);
             tv_shoppingCart_no.setText(EGOApplication.getInstance().getShoppingCartNo());
@@ -141,6 +149,20 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
             ll_shoppingCart.setVisibility(View.GONE);
             tv_shoppingCart_no.setText(EGOApplication.getInstance().getShoppingCartNo());
         }
+
+        /**
+         * 当有商品加入订单后才显示结账按钮
+         */
+        if (EGOApplication.getInstance().getGoodsIdList().size() == 0) {
+            iv_shoppingCart.setVisibility(View.INVISIBLE);
+        } else {
+            iv_shoppingCart.setVisibility(View.VISIBLE);
+        }
+
+        /**
+         * 设置超市名称
+         */
+        tv_market_name.setText(EGOApplication.getInstance().getMarketName());
     }
 
     private void initViews() {
@@ -155,6 +177,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         marketRecommendView = (ImageButton) findViewById(R.id.marketRecommend);
         personal = (ImageButton)findViewById(R.id.personal);
         scanButton = (ImageButton)findViewById(R.id.scanButton);
+        iv_shoppingCart = (ImageView) findViewById(R.id.shoppingCart);
+
         NavigationView navView = (NavigationView)findViewById(R.id.nav_view);
         navView.setCheckedItem(R.id.nav_order);//默认选中我的订单选项
         navView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener(){
@@ -168,7 +192,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
                         break;
                     case R.id.nav_wallet:
                         Intent intent_wallet = new Intent(MainActivity.this,WalletActivity.class);
-                        intent_wallet.putExtra("login_name",name);
+                        //intent_wallet.putExtra("login_name",name);
                         startActivity(intent_wallet);
                         break;
                     case R.id.nav_history:
@@ -227,6 +251,12 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         marketRecommendView.setOnClickListener(this);
         personal.setOnClickListener(this);
         scanButton.setOnClickListener(this);
+
+        /**
+         * 购物车按钮
+         */
+        iv_shoppingCart.setOnClickListener(this);
+
         edit.setOnClickListener(this);
         //userimage.setOnClickListener(this);
 
@@ -234,6 +264,8 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         ll_shoppingCart = (LinearLayout) findViewById(R.id.ll_shoppingCart);
         tv_shoppingCart_text = (TextView) findViewById(R.id.tvShoppingCartNoPre);
         tv_shoppingCart_no = (TextView) findViewById(R.id.tvShoppingCartNo);
+
+        tv_market_name = (TextView) findViewById(R.id.tvSelectMarket);
 
         //viewPager.addOnPageChangeListener(this);
     }
@@ -304,6 +336,13 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
                 Intent scan_intent = new Intent(MainActivity.this, CaptureActivity.class);
                 startActivity(scan_intent);
                 break;
+
+            case R.id.shoppingCart:
+                Intent confirmOrder_intent = new Intent(this, ConfirmOrderActivity.class);
+                startActivity(confirmOrder_intent);
+                break;
+            default:
+                break;
         }
     }
 
@@ -360,6 +399,15 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         } else {
             ll_shoppingCart.setVisibility(View.GONE);
             tv_shoppingCart_no.setText(EGOApplication.getInstance().getShoppingCartNo());
+        }
+
+        /**
+         * 当有商品加入订单后才显示结账按钮
+         */
+        if (EGOApplication.getInstance().getGoodsIdList().size() == 0) {
+            iv_shoppingCart.setVisibility(View.INVISIBLE);
+        } else {
+            iv_shoppingCart.setVisibility(View.VISIBLE);
         }
     }
 

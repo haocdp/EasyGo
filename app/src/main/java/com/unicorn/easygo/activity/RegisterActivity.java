@@ -9,6 +9,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.unicorn.easygo.R;
+import com.unicorn.easygo.db.litepal.Account;
+import com.unicorn.easygo.db.litepal.User;
 import com.unicorn.easygo.db.userDBdao;
 
 public class RegisterActivity extends BaseActivity implements View.OnClickListener{
@@ -18,7 +20,7 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
 
     private String name;
     private String pwd;
-    private userDBdao userDBdao;
+    //private userDBdao userDBdao;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,8 +57,15 @@ public class RegisterActivity extends BaseActivity implements View.OnClickListen
                             Toast.LENGTH_SHORT).show();
                     break;
                 }
-                userDBdao = new userDBdao(getApplicationContext());
-                userDBdao.add(name,pwd);
+                //userDBdao = new userDBdao(getApplicationContext());
+                //userDBdao.add(name,pwd);
+
+                Account account = new Account(name, pwd);
+                account.save();
+                User user = new User(name, 1 , "", 0);
+                user.save();
+                account.setUser(user);
+                account.save();
                 Toast.makeText(getApplicationContext(), "注 册 成 功 ！",
                         Toast.LENGTH_SHORT).show();
                 finish();

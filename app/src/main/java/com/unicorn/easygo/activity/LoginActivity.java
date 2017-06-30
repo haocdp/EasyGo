@@ -14,15 +14,23 @@ import com.amap.api.maps.model.Text;
 import com.unicorn.easygo.EGOApplication;
 import com.unicorn.easygo.MainActivity;
 import com.unicorn.easygo.R;
+import com.unicorn.easygo.db.litepal.Account;
+import com.unicorn.easygo.db.litepal.User;
 import com.unicorn.easygo.db.user;
 import com.unicorn.easygo.db.userDBdao;
 import com.unicorn.easygo.entity.UserProfile;
+import com.unicorn.easygo.utils.PreferenceUtils;
+
+import org.litepal.crud.DataSupport;
+
+import java.util.List;
 
 public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     private TextView tv_register;
-    private user user;
-    userDBdao userdbdao;
+    private List<Account> accountList;
+    private List<User> userList;
+    //userDBdao userdbdao;
     private EditText loginName;// 账号
     private EditText loginPwd;// 密码
     private Button login;//登陆
@@ -54,6 +62,20 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
 
     }
 
+
+    /**
+     * 从SharedPreferences中获取用户相关信息，直接登录
+     */
+    private void preLogin() {
+        String username =
+                PreferenceUtils.getPrefString(this, PreferenceUtils.USERNAME, "");
+        String password =
+                PreferenceUtils.getPrefString(this, PreferenceUtils.PASSWORD, "");
+
+        if (!username.equals("") && !password.equals("")) {
+
+        }
+    }
 //    @Override
 //    protected void onStart() {
 //        // TODO Auto-generated method stub
@@ -78,16 +100,50 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener{
                             Toast.LENGTH_SHORT).show();
                     break;
                 }
-                userdbdao = new userDBdao(getApplicationContext());
-                boolean result = userdbdao.find(loginName.getText().toString());
-                if(result){//判断账号是否存在
-                    result = userdbdao.findLogin(loginName.getText().toString(),loginPwd.getText().toString());
-                    if(result){//若账号存在，判断密码是否正确
+//                userdbdao = new userDBdao(getApplicationContext());
+//                boolean result = userdbdao.find(loginName.getText().toString());
+//                if(result){//判断账号是否存在
+//                    result = userdbdao.findLogin(loginName.getText().toString(),loginPwd.getText().toString());
+//                    if(result){//若账号存在，判断密码是否正确
+//                        Intent login_intent = new Intent(this,MainActivity.class);
+//                        //login_intent.putExtra("name", loginName.getText	().toString().trim());
+//                        EGOApplication.getInstance().getUserProfile().setUsername(
+//                                loginName.getText().toString().trim());
+//                        startActivity(login_intent);
+//
+//                    }else{
+//                        Toast.makeText(getApplicationContext(),"密码错误，请重试",Toast.LENGTH_SHORT).show();
+//                    }
+//
+//                }else{
+//                    Toast.makeText(getApplicationContext(),"账号不存在！",Toast.LENGTH_SHORT).show();
+//                }
+
+                accountList = DataSupport.where("username = ?", loginName.getText().toString())
+                                .find(Account.class);
+                if(accountList.size() != 0){//判断账号是否存在
+                    accountList = DataSupport.where("username = ?", loginName.getText().toString())
+                            .where("password = ?", loginPwd.getText().toString())
+                            .find(Account.class);
+                    if(accountList.size() != 0){//若账号存在，判断密码是否正确
                         Intent login_intent = new Intent(this,MainActivity.class);
                         //login_intent.putExtra("name", loginName.getText	().toString().trim());
-                        EGOApplication.getInstance().getUserProfile().setUsername(
-                                loginName.getText().toString().trim());
+
+                        userList = DataSupport.where("account_id = ?", String.valueOf(accountList.get(0).getId()))
+                                .find(User.class);
+
+                        EGOApplication.getInstance().getUserProfile()
+                                .setId(userList.get(0).getId())
+                                .setUsername(loginName.getText().toString().trim())
+                                .setSex(userList.get(0).getGender() == 1 ? "男" : "女");
+
+                        /*PreferenceUtils.setPrefString(this,
+                                PreferenceUtils.USERNAME, accountList.get(0).getUsername());
+                        PreferenceUtils.setPrefString(this,
+                                PreferenceUtils.PASSWORD, accountList.get(0).getPassword());*/
+
                         startActivity(login_intent);
+                        finish();
 
                     }else{
                         Toast.makeText(getApplicationContext(),"密码错误，请重试",Toast.LENGTH_SHORT).show();

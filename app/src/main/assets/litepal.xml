@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="EasyGo" />
+
+    <version value="1" />
+
+    <list>
+        <mapping class="com.unicorn.easygo.db.litepal.Account"/>
+        <mapping class="com.unicorn.easygo.db.litepal.User"/>
+        <mapping class="com.unicorn.easygo.db.litepal.Goods"/>
+        <mapping class="com.unicorn.easygo.db.litepal.OrderAlias"/>
+        <mapping class="com.unicorn.easygo.db.litepal.ScanRecord"/>
+        <mapping class="com.unicorn.easygo.db.litepal.ShoppingCart"/>
+
+    </list>
+</litepal>

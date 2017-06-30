@@ -1,6 +1,8 @@
 package com.unicorn.easygo.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -10,10 +12,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ToggleButton;
 
+import com.unicorn.easygo.EGOApplication;
 import com.unicorn.easygo.MainActivity;
 import com.unicorn.easygo.R;
+import com.unicorn.easygo.activity.MapGoodsActivity;
 import com.unicorn.easygo.utils.FontUtil;
 
 import java.util.ArrayList;
@@ -29,9 +34,12 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
     private final Context context;
     private List<String> orderItems;
 
+    private Intent intent;
+
     public PreOrderAdapter (Context context, List<String> list) {
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
+        intent = new Intent(context, MapGoodsActivity.class);
         orderItems = list;
     }
 
@@ -97,6 +105,21 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
                 view.requestFocus();*/
             }
         });
+
+        preOrderViewHolder.followMe.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!"".equals(EGOApplication.getInstance().getMarketName())) {
+                    context.startActivity(intent);
+                } else {
+                    new AlertDialog.Builder(context)
+                            .setTitle("提示")
+                            .setMessage("请先选择超市")
+                            .setNegativeButton("确定", null)
+                            .show();
+                }
+            }
+        });
         return preOrderViewHolder;
     }
 
@@ -107,6 +130,10 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
         FontUtil.setFont(holder.editText, context.getAssets(), 0);
         //holder.editText.setFocusableInTouchMode(false);
         holder.toggleButton.setChecked(false);
+
+        if (position == orderItems.size() - 1) {
+            holder.followMe.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -118,6 +145,7 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
 
         public ToggleButton toggleButton;
         public EditText editText;
+        public ImageView followMe;
         public PreOrderViewHolder(View itemView) {
             super(itemView);
             editText = (EditText) itemView.findViewById(R.id.orderItem);
@@ -126,6 +154,8 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
             toggleButton = (ToggleButton) itemView.findViewById(R.id.orderItem_toggleButton);
             //toggleButton.setFocusableInTouchMode(true);
             //toggleButton.setFocusable(true);
+
+            followMe = (ImageView) itemView.findViewById(R.id.iv_follow_me);
         }
     }
 

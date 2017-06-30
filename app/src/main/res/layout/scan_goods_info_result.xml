@@ -20,7 +20,7 @@
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/goods_image"
             android:layout_width="150dp"
-            android:layout_height="170dp"
+            android:layout_height="150dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:src="@drawable/nav_icon"
@@ -33,6 +33,7 @@
             android:layout_height="26dp"
             android:layout_below="@+id/goods_image"
             android:layout_centerHorizontal="true"
+            android:layout_marginTop="5dp"
             android:background="@mipmap/btn_add_order_background"
             android:text="加入订单"
             android:textColor="@color/assistColor_white" />
@@ -90,7 +91,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <TextView
@@ -157,7 +158,7 @@
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="160dp"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/linearLayout_date"
             android:layout_centerHorizontal="true"
             android:layout_marginLeft="20dp"
@@ -202,7 +203,7 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
@@ -239,7 +240,7 @@
                         android:id="@+id/goods_form_carbohydrate"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_marginTop="8dp"
                         android:text="碳水化合物"
                         android:textColor="@color/assistColor_black" />
@@ -279,7 +280,7 @@
                         android:id="@+id/goods_form_carbohydrate_num"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_marginTop="8dp"
                         android:text="16.6克"
                         android:textColor="@color/assistColor_black" />
@@ -320,7 +321,7 @@
                         android:id="@+id/goods_form_carbohydrate_percent"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginBottom="10dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_marginTop="8dp"
                         android:text="6%"
                         android:textColor="@color/assistColor_black" />
