@@ -28,6 +28,7 @@ import android.widget.Toast;
 import com.amap.api.maps.model.Text;
 import com.unicorn.easygo.activity.ConfirmOrderActivity;
 import com.unicorn.easygo.activity.CouponActivity;
+import com.unicorn.easygo.activity.GenerateOrderActivity;
 import com.unicorn.easygo.activity.HistoryActivity;
 import com.unicorn.easygo.activity.BaseActivity;
 import com.unicorn.easygo.activity.LoginActivity;
@@ -338,8 +339,10 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
                 break;
 
             case R.id.shoppingCart:
-                Intent confirmOrder_intent = new Intent(this, ConfirmOrderActivity.class);
-                startActivity(confirmOrder_intent);
+                /*Intent confirmOrder_intent = new Intent(this, ConfirmOrderActivity.class);
+                startActivity(confirmOrder_intent);*/
+                Intent generateOrder_intent = new Intent(this, GenerateOrderActivity.class);
+                startActivity(generateOrder_intent);
                 break;
             default:
                 break;
@@ -396,19 +399,26 @@ public class MainActivity extends BaseActivity implements View.OnClickListener,V
         if (EGOApplication.getInstance().hasBundCart()) {
             ll_shoppingCart.setVisibility(View.VISIBLE);
             tv_shoppingCart_no.setText(EGOApplication.getInstance().getShoppingCartNo());
+            iv_shoppingCart.setVisibility(View.VISIBLE);
         } else {
             ll_shoppingCart.setVisibility(View.GONE);
             tv_shoppingCart_no.setText(EGOApplication.getInstance().getShoppingCartNo());
+            iv_shoppingCart.setVisibility(View.INVISIBLE);
         }
 
         /**
          * 当有商品加入订单后才显示结账按钮
          */
-        if (EGOApplication.getInstance().getGoodsIdList().size() == 0) {
-            iv_shoppingCart.setVisibility(View.INVISIBLE);
+        /*if (EGOApplication.getInstance().getGoodsIdList().size() == 0) {
+
         } else {
-            iv_shoppingCart.setVisibility(View.VISIBLE);
-        }
+
+        }*/
+
+        /**
+         * 当选择超市后，显示超市名称
+         */
+        tv_market_name.setText(EGOApplication.getInstance().getMarketName());
     }
 
 

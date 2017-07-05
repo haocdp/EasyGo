@@ -48,6 +48,7 @@ import com.amap.api.services.core.PoiItem;
 import com.amap.api.services.core.SuggestionCity;
 import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
+import com.unicorn.easygo.EGOApplication;
 import com.unicorn.easygo.R;
 import com.unicorn.easygo.adapter.PoiItemAdapter;
 import com.unicorn.easygo.utils.NetworkCheckUtil;
@@ -156,7 +157,7 @@ public class MarketRecommendActivity extends AppCompatActivity implements
 
     private boolean checkNetwork() {
         if (!NetworkCheckUtil.isNetworkAvailable(this)) {
-            ToastUtil.show(this, "当前没有网络连接");
+            ToastUtil.show(this.getApplicationContext(), "当前没有网络连接");
             return false;
         }
         return true;
@@ -194,6 +195,15 @@ public class MarketRecommendActivity extends AppCompatActivity implements
         super.onDestroy();
         //在activity执行onDestroy时执行mMapView.onDestroy()，销毁地图
         mMapView.onDestroy();
+        /*PoiItemAdapter poiItemAdapter = (PoiItemAdapter) recyclerView.getAdapter();
+        List<PoiItem> poiItemList = poiItemAdapter.mItems;
+        int mSelectedItem = poiItemAdapter.mSelectedItem;
+
+        if(mSelectedItem != -1) {
+            EGOApplication.getInstance().setMarketName(
+                    poiItemList.get(mSelectedItem).getTitle()
+            );
+        }*/
     }
     @Override
     protected void onResume() {

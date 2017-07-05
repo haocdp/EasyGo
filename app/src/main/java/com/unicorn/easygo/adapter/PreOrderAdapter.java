@@ -93,6 +93,7 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
                             !"".equals(afterText) && afterText != null &&
                             !beforeText.equals(afterText))
                         orderItems.set(preOrderViewHolder.getAdapterPosition(), afterText);
+
                 }
             }
         });
@@ -130,10 +131,9 @@ public class PreOrderAdapter extends RecyclerView.Adapter<PreOrderAdapter.PreOrd
         FontUtil.setFont(holder.editText, context.getAssets(), 0);
         //holder.editText.setFocusableInTouchMode(false);
         holder.toggleButton.setChecked(false);
-
-        if (position == orderItems.size() - 1) {
+        /*if ("".equals(holder.editText.getText().toString())) {
             holder.followMe.setVisibility(View.INVISIBLE);
-        }
+        }*/
     }
 
     @Override

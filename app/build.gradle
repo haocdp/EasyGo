@@ -44,6 +44,8 @@ dependencies {
     /**
      * sqlite开源库
      */
+    
+
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'me.relex:circleindicator:1.2.2@aar'
@@ -53,5 +55,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'com.android.support:recyclerview-v7:25.2.1'
     compile 'org.litepal.android:core:1.4.1'
+    compile 'com.mcxiaoke.volley:library:1.0.6'
     testCompile 'junit:junit:4.12'
 }

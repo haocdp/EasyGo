@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ececec"
-    tools:context="com.unicorn.easygo.activity.DemagnetizeActivity">
+    tools:context="com.unicorn.easygo.activity.ConfirmOrderActivity">
 
     <com.unicorn.easygo.utils.TitleLayout
         android:id="@+id/confirm_order_titleLayout"
@@ -18,7 +18,66 @@
     </com.unicorn.easygo.utils.TitleLayout>
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout3"
+        android:layout_width="361dp"
+        android:layout_height="97dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/cardview_light_background"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/confirm_order_titleLayout"
+        android:id="@+id/constraintLayout">
+
+        <TextView
+            android:id="@+id/tv_order_num_prefix"
+            android:layout_width="55dp"
+            android:layout_height="23dp"
+            android:layout_marginBottom="35dp"
+            android:layout_marginLeft="124dp"
+            android:layout_marginTop="39dp"
+            android:gravity="center"
+            android:text="合计:"
+            android:textColor="#666666"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_marginStart="124dp" />
+
+        <TextView
+            android:id="@+id/tv_totalPrice_num"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginBottom="28dp"
+            android:text="51"
+            android:textColor="@color/adornColor"
+            android:textSize="36sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/tv_order_num_prefix"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/tv_totalPrice_suffix"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="35dp"
+            android:layout_marginRight="123dp"
+            android:text="元"
+            android:textColor="@color/adornColor"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintLeft_toRightOf="@+id/tv_totalPrice_num"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            android:layout_marginEnd="123dp" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.constraint.ConstraintLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -26,7 +85,8 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/confirm_order_titleLayout">
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        android:id="@+id/constraintLayout3">
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout2"
@@ -79,9 +139,9 @@
         </android.support.constraint.ConstraintLayout>
 
         <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_demagnetize"
+            android:id="@+id/rv_goods_list"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -90,5 +150,21 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
     </android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/tv_confirm_order"
+        android:layout_width="208dp"
+        android:layout_height="43dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="30dp"
+        android:background="@mipmap/confirm_order_backgound"
+        android:gravity="center"
+        android:text="生成订单"
+        android:textColor="@color/contents_text"
+        android:textSize="18sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout3" />
 
 </android.support.constraint.ConstraintLayout>

@@ -104,7 +104,7 @@ public class PayActivity extends AppCompatActivity {
 
                     ToastUtil.show(getApplicationContext(), "支付成功");
 
-                    Intent intent = new Intent(getApplicationContext(),OrderDetailActivity.class);
+                    Intent intent = new Intent(getApplicationContext(),DemagnetizeActivity.class);
                     intent.putExtra("totalPrice", totalPrice);
                     startActivity(intent);
                 }

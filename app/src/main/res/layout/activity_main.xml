@@ -61,12 +61,15 @@
 
                         <TextView
                             android:id="@+id/tvSelectMarket"
-                            android:layout_width="wrap_content"
+                            android:layout_width="90dp"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_centerVertical="true"
+                            android:ellipsize="end"
+                            android:maxLines="1"
                             android:text="武商量贩"
-                            android:textColor="@color/assistColor_black" />
+                            android:textColor="@color/assistColor_black"
+                            android:textSize="12sp" />
                     </RelativeLayout>
 
                     <ImageButton

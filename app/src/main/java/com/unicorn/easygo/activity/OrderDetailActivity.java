@@ -100,6 +100,9 @@ public class OrderDetailActivity extends AppCompatActivity {
         EGOApplication.getInstance().setOrderNo("");
         EGOApplication.getInstance().getGoodsIdList().clear();
 
+        EGOApplication.getInstance().setHasBundCart(false);
+        EGOApplication.getInstance().setMarketName("");
+
         ActivityCollector.finishAll();
     }
 }
